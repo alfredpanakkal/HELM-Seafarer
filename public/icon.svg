@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="anchorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7875" />
+      <stop offset="100%" stop-color="#FF4D4F" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Outer glowing background -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  
+  <!-- Inner circular gradient -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="#FF4D4F" stroke-width="4" stroke-opacity="0.2" />
+  
+  <g filter="url(#glow)">
+    <!-- Anchor Ring -->
+    <circle cx="256" cy="130" r="30" fill="none" stroke="url(#anchorGrad)" stroke-width="24" />
+    
+    <!-- Anchor Shank (Vertical shaft) -->
+    <line x1="256" y1="160" x2="256" y2="350" stroke="url(#anchorGrad)" stroke-width="24" stroke-linecap="round" />
+    
+    <!-- Anchor Stock (Horizontal bar) -->
+    <line x1="180" y1="190" x2="332" y2="190" stroke="url(#anchorGrad)" stroke-width="20" stroke-linecap="round" />
+    <circle cx="170" cy="190" r="14" fill="url(#anchorGrad)" />
+    <circle cx="342" cy="190" r="14" fill="url(#anchorGrad)" />
+    
+    <!-- Anchor Flukes (The curved bottom) -->
+    <path d="M 120 280 C 120 400, 392 400, 392 280" fill="none" stroke="url(#anchorGrad)" stroke-width="24" stroke-linecap="round" />
+    
+    <!-- Left fluke tip -->
+    <path d="M 120 280 L 100 250 L 140 250 Z" fill="url(#anchorGrad)" />
+    <!-- Right fluke tip -->
+    <path d="M 392 280 L 372 250 L 412 250 Z" fill="url(#anchorGrad)" />
+    
+    <!-- Anchor Center Diamond / Accent -->
+    <polygon points="256,290 270,310 256,330 242,310" fill="#FFFFFF" opacity="0.9" />
+  </g>
+</svg>

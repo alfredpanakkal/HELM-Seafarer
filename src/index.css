@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  color-scheme: light dark;
+  --app-bg: var(--color-slate-100);
+  --app-text: var(--color-slate-900);
+  --overlay-bg: rgba(15, 23, 42, 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-bg: var(--color-slate-950);
+    --app-text: var(--color-slate-50);
+    --overlay-bg: rgba(2, 6, 23, 0.75);
+  }
+}
+
+html, body, #root {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.pb-safe { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+.pt-safe { padding-top: max(0.5rem, env(safe-area-inset-top)); }
+.table-responsive-container { width: 100%; overflow-x: auto; }
+.safe-padding { padding-bottom: env(safe-area-inset-bottom); }
+
+.modal-overlay { background-color: var(--overlay-bg); }
+
+* {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: ease;
+  transition-duration: 200ms;
+}

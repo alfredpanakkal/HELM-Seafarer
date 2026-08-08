@@ -1,0 +1,6 @@
+{
+  "name": "Seafarer NRI & Seatime Calculator",
+  "description": "A comprehensive calculator for Indian seafarers to track NRI tax status, sailing log, seatime analytics, and tax estimates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
