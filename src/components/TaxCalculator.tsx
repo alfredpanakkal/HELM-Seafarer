@@ -108,21 +108,21 @@ export default function TaxCalculator({
   const manualTaxDue = isNriManual ? 0 : manualTaxResult.total;
   const manualNetTakeHome = currentGrossINR - manualTaxDue;
   const selectCls =
-    "bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-200 outline-none focus:border-emerald-500 cursor-pointer";
+    "bg-surface border border-app rounded-xl px-4 py-2.5 text-sm font-semibold text-app outline-none focus:border-emerald-600 cursor-pointer shadow-sm";
   const inputCls =
-    "bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm font-mono tabular-nums text-slate-200 outline-none focus:border-emerald-500";
-  const labelCls = "text-xs font-semibold text-slate-400";
-  const rowCls = "flex justify-between py-1 border-b border-slate-850";
-  const valLabelCls = "text-slate-500";
+    "bg-surface border border-app rounded-xl px-4 py-2.5 text-sm font-mono tabular-nums text-app placeholder:text-muted-app outline-none focus:border-emerald-600 shadow-sm";
+  const labelCls = "text-xs font-semibold text-app";
+  const rowCls = "flex justify-between py-1 border-b border-app";
+  const valLabelCls = "text-muted-app";
 
   return (
     <div id="page-tax" className="page active animate-fadeUp">
       <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 pb-24 md:pb-8">
         <div className="page-header mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-2">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-app mb-2">
             Tax Calculator
           </h1>
-          <p className="text-sm text-slate-400 measure-prose">
+          <p className="text-sm text-muted-app measure-prose">
             FY-wise tax estimates &bull; New Tax Regime &bull; Slabs matching
             Budget 2025 guidelines
           </p>
@@ -133,13 +133,13 @@ export default function TaxCalculator({
 
         {/* Voyage Earnings Tax Assessment (Auto) */}
         {hasVoyageEarnings && voyageCards.length > 0 && (
-          <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-5 mb-6 shadow-md">
+          <div className="card-surface rounded-2xl p-5 mb-6 shadow-sm">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xs font-bold tracking-widest text-slate-400 uppercase flex items-center gap-2">
-                <span className="w-1.5 h-3 bg-emerald-500 rounded-sm"></span>{" "}
+              <h3 className="text-xs font-bold tracking-widest text-app uppercase flex items-center gap-2">
+                <span className="w-1.5 h-3 bg-emerald-600 rounded-sm"></span>{" "}
                 Sailing Tax Analysis
               </h3>
-              <span className="text-[10px] text-slate-500 font-mono font-bold">
+              <span className="text-[10px] text-muted-app font-mono font-bold">
                 Rate: ₹{usdInrRate}/USD
               </span>
             </div>
@@ -151,25 +151,25 @@ export default function TaxCalculator({
                   card.grossINR > 0 ? (card.tax / card.grossINR) * 100 : 0;
 
                 // Left border accent line
-                let indicatorColor = "border-l-4 border-l-blue-500"; // default Resident NIL tax
+                let indicatorColor = "border-l-4 border-l-blue-600"; // default Resident NIL tax
                 if (card.isNRI) {
-                  indicatorColor = "border-l-4 border-l-emerald-500";
+                  indicatorColor = "border-l-4 border-l-emerald-600";
                 } else if (card.tax > 0) {
-                  indicatorColor = "border-l-4 border-l-rose-500";
+                  indicatorColor = "border-l-4 border-l-rose-600";
                 }
 
                 return (
                   <div
                     key={card.fy}
-                    className={`bg-slate-950 border border-slate-850 p-6 rounded-2xl flex flex-col gap-5 ${indicatorColor} shadow-md`}
+                    className={`bg-recessed border border-app p-6 rounded-2xl flex flex-col gap-5 ${indicatorColor} shadow-sm`}
                   >
                     {/* Header Row */}
                     <div className="flex justify-between items-start gap-4">
                       <div>
-                        <div className="font-bold text-lg text-slate-100">
+                        <div className="font-bold text-lg text-app">
                           FY {card.fy}
                         </div>
-                        <div className="text-[11px] text-slate-500 font-medium mt-0.5">
+                        <div className="text-[11px] text-muted-app font-medium mt-0.5">
                           {getTaxConfig(parseInt(card.fy), "new").regimeLabel}{" "}
                           &bull; USD/INR ₹{usdInrRate.toFixed(2)}
                         </div>
@@ -178,54 +178,54 @@ export default function TaxCalculator({
                         <span
                           className={`text-[10px] font-bold border rounded-full px-2.5 py-0.5 ${
                             card.isNRI
-                              ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-                              : "bg-amber-500/10 text-amber-400 border-amber-500/20"
+                              ? "bg-emerald-100 text-emerald-800 border-emerald-300"
+                              : "bg-amber-100 text-amber-800 border-amber-300"
                           }`}
                         >
                           {card.isNRI ? "✓ NRI" : "Resident"}
                         </span>
-                        <span className="text-[10px] font-bold bg-slate-900 border border-slate-800 text-slate-400 rounded-full px-2.5 py-0.5 font-mono">
+                        <span className="text-[10px] font-bold bg-surface border border-app text-app rounded-full px-2.5 py-0.5 font-mono">
                           {card.outside}d outside
                         </span>
                       </div>
                     </div>
 
                     {/* Breakdown List */}
-                    <div className="space-y-2.5 border-t border-slate-900 pt-4 text-xs">
+                    <div className="space-y-2.5 border-t border-app pt-4 text-xs">
                       <div className="flex justify-between items-center py-0.5">
-                        <span className="text-slate-400 font-medium">
+                        <span className="text-muted-app font-medium">
                           Gross Income
                         </span>
-                        <span className="font-semibold text-slate-200 font-mono">
+                        <span className="font-semibold text-app font-mono">
                           {usdFmt(card.grossUSD)} = {inrFmt(card.grossINR)}
                         </span>
                       </div>
 
                       <div className="flex justify-between items-center py-0.5">
-                        <span className="text-slate-400 font-medium">
+                        <span className="text-muted-app font-medium">
                           Standard Deduction
                         </span>
-                        <span className="font-semibold text-emerald-400 font-mono">
+                        <span className="font-semibold text-emerald-700 font-mono">
                           - {inrFmt(card.result.stdDeduction)}
                         </span>
                       </div>
 
                       {!card.isNRI && (
                         <div className="flex justify-between items-center py-0.5">
-                          <span className="text-slate-400 font-medium">
+                          <span className="text-muted-app font-medium">
                             80C / 80D Deductions
                           </span>
-                          <span className="font-semibold text-emerald-400 font-mono">
+                          <span className="font-semibold text-emerald-700 font-mono">
                             - {inrFmt(150000)}
                           </span>
                         </div>
                       )}
 
-                      <div className="flex justify-between items-center py-1.5 border-t border-slate-900/40">
-                        <span className="text-slate-300 font-semibold">
+                      <div className="flex justify-between items-center py-1.5 border-t border-app">
+                        <span className="text-app font-semibold">
                           Taxable Income
                         </span>
-                        <span className="font-bold text-slate-100 font-mono">
+                        <span className="font-bold text-app font-mono">
                           {inrFmt(card.result.taxable)}
                         </span>
                       </div>
@@ -233,12 +233,12 @@ export default function TaxCalculator({
 
                     {/* Slabs breakdown (Only for Resident) */}
                     {!card.isNRI && (
-                      <div className="bg-slate-900/40 border border-slate-900/60 p-4 rounded-xl text-xs space-y-3">
-                        <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">
+                      <div className="bg-surface border border-app p-4 rounded-xl text-xs space-y-3 shadow-sm">
+                        <div className="text-[10px] text-muted-app font-bold uppercase tracking-wider">
                           Slab Breakdown
                         </div>
                         <div className="space-y-1.5 font-mono text-[11px]">
-                          <div className="flex justify-between text-slate-500 font-semibold border-b border-slate-900/40 pb-1 mb-1">
+                          <div className="flex justify-between text-muted-app font-semibold border-b border-app pb-1 mb-1">
                             <span>Slab</span>
                             <span>Rate</span>
                             <span className="text-right">Tax</span>
@@ -246,7 +246,7 @@ export default function TaxCalculator({
                           {card.result.slabsBreakdown.map((s, i) => (
                             <div
                               key={i}
-                              className="flex justify-between text-slate-400"
+                              className="flex justify-between text-app"
                             >
                               <span className="w-1/2 text-left">{s.text}</span>
                               <span className="w-1/4 text-center">
@@ -257,18 +257,18 @@ export default function TaxCalculator({
                               </span>
                             </div>
                           ))}
-                          <div className="flex justify-between text-slate-300 font-semibold border-t border-slate-900/40 pt-2 mt-1">
+                          <div className="flex justify-between text-app font-semibold border-t border-app pt-2 mt-1">
                             <span>Tax before rebate</span>
                             <span></span>
                             <span>{inrFmt(card.result.taxBeforeCess)}</span>
                           </div>
 
                           {/* Rebate Row */}
-                          <div className="flex justify-between text-slate-500 text-[10px] leading-relaxed pt-1.5 border-t border-slate-900/20">
+                          <div className="flex justify-between text-muted-app text-[10px] leading-relaxed pt-1.5 border-t border-app">
                             {card.result.taxable <=
                             getTaxConfig(parseInt(card.fy), "new")
                               .rebateLimit ? (
-                              <span className="text-emerald-400 font-sans">
+                              <span className="text-emerald-700 font-sans font-medium">
                                 87A rebate: Applied &mdash; full tax relief up
                                 to rebate limit
                               </span>
@@ -286,7 +286,7 @@ export default function TaxCalculator({
                           </div>
 
                           {card.result.cess > 0 && (
-                            <div className="flex justify-between text-slate-400 border-t border-slate-900/40 pt-2">
+                            <div className="flex justify-between text-muted-app border-t border-app pt-2">
                               <span>Health &amp; Ed. Cess (4%)</span>
                               <span></span>
                               <span>{inrFmt(card.result.cess)}</span>
@@ -298,30 +298,30 @@ export default function TaxCalculator({
 
                     {/* Informational Warning / Info Box */}
                     {card.isNRI ? (
-                      <div className="bg-emerald-500/5 border border-emerald-500/20 p-4 rounded-xl text-xs leading-relaxed text-emerald-400">
-                        <div className="font-bold flex items-center gap-1.5 mb-1 text-sm">
+                      <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-xs leading-relaxed text-emerald-900">
+                        <div className="font-bold flex items-center gap-1.5 mb-1 text-sm text-emerald-800">
                           <span>✓</span> Zero Tax &mdash; NRI Status
                         </div>
-                        <div className="text-slate-400 text-[11px] font-medium mb-1">
+                        <div className="text-emerald-950 text-[11px] font-medium mb-1">
                           Ship employment income is fully exempt under{" "}
                           <strong>Sec 10(6)(viii)</strong> of the Income Tax Act
                           for non-resident seafarers.
                         </div>
-                        <div className="text-emerald-500/90 font-semibold font-mono text-[10px]">
+                        <div className="text-emerald-800 font-semibold font-mono text-[10px]">
                           This FY: {card.outside} days outside India &ge;{" "}
                           {card.threshold} days required &rarr; NRI ✓
                         </div>
                       </div>
                     ) : card.tax > 0 ? (
-                      <div className="bg-rose-500/5 border border-rose-500/20 p-4 rounded-xl text-xs leading-relaxed text-rose-400">
-                        <div className="font-bold flex items-center gap-1.5 mb-1 text-sm">
+                      <div className="bg-rose-50 border border-rose-200 p-4 rounded-xl text-xs leading-relaxed text-rose-900">
+                        <div className="font-bold flex items-center gap-1.5 mb-1 text-sm text-rose-800">
                           <span>⚠</span> Tax Applicable &mdash; Resident Status
                         </div>
-                        <div className="text-slate-400 text-[11px] font-medium mb-1">
+                        <div className="text-rose-950 text-[11px] font-medium mb-1">
                           As a resident, foreign salary earned during this FY is
                           taxable in India.
                         </div>
-                        <div className="text-rose-400/90 font-semibold text-[10px]">
+                        <div className="text-rose-800 font-semibold text-[10px]">
                           NRI status requires &ge; {card.threshold} days outside
                           India &mdash; not achieved this FY. Taxable income{" "}
                           {inrFmt(card.result.taxable)} exceeds 87A rebate limit
@@ -329,16 +329,16 @@ export default function TaxCalculator({
                         </div>
                       </div>
                     ) : (
-                      <div className="bg-blue-500/5 border border-blue-500/20 p-4 rounded-xl text-xs leading-relaxed text-blue-400">
-                        <div className="font-bold flex items-center gap-1.5 mb-1 text-sm">
+                      <div className="bg-blue-50 border border-blue-200 p-4 rounded-xl text-xs leading-relaxed text-blue-900">
+                        <div className="font-bold flex items-center gap-1.5 mb-1 text-sm text-blue-800">
                           <span>✓</span> NIL Tax &mdash; Resident Status
                         </div>
-                        <div className="text-slate-400 text-[11px] font-medium mb-1">
+                        <div className="text-blue-950 text-[11px] font-medium mb-1">
                           You are a resident for tax purposes this FY, but your
                           taxable income after standard and Section 80C
                           deductions is within tax-free slab limits.
                         </div>
-                        <div className="text-blue-400/90 font-semibold text-[10px]">
+                        <div className="text-blue-800 font-semibold text-[10px]">
                           This FY: {card.outside} days outside India &lt;{" "}
                           {card.threshold} days required.
                         </div>
@@ -346,35 +346,35 @@ export default function TaxCalculator({
                     )}
 
                     {/* Bottom Banner */}
-                    <div className="grid grid-cols-3 gap-2 bg-slate-900 border border-slate-850 rounded-xl p-4 text-center shadow-inner">
+                    <div className="grid grid-cols-3 gap-2 bg-surface border border-app rounded-xl p-4 text-center shadow-sm">
                       <div>
-                        <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">
+                        <div className="text-[10px] text-muted-app font-bold uppercase tracking-wider mb-1">
                           Gross (INR)
                         </div>
-                        <div className="font-extrabold font-mono text-slate-200 text-sm">
+                        <div className="font-extrabold font-mono text-app text-sm">
                           {inrFmt(card.grossINR)}
                         </div>
                       </div>
                       <div>
-                        <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">
+                        <div className="text-[10px] text-muted-app font-bold uppercase tracking-wider mb-1">
                           Tax
                         </div>
                         <div
-                          className={`font-extrabold font-mono text-sm ${card.tax > 0 ? "text-red-400" : "text-emerald-400"}`}
+                          className={`font-extrabold font-mono text-sm ${card.tax > 0 ? "text-rose-600" : "text-emerald-700"}`}
                         >
                           {card.tax > 0 ? inrFmt(card.tax) : "NIL"}
                         </div>
                         {card.tax > 0 && (
-                          <div className="text-[9px] text-slate-500 font-medium font-sans mt-0.5">
+                          <div className="text-[9px] text-muted-app font-medium font-sans mt-0.5">
                             Eff. {effRate.toFixed(1)}%
                           </div>
                         )}
                       </div>
                       <div>
-                        <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">
+                        <div className="text-[10px] text-muted-app font-bold uppercase tracking-wider mb-1">
                           Net
                         </div>
-                        <div className="font-extrabold font-mono text-emerald-400 text-sm">
+                        <div className="font-extrabold font-mono text-emerald-700 text-sm">
                           {inrFmt(card.net)}
                         </div>
                       </div>
@@ -386,24 +386,24 @@ export default function TaxCalculator({
 
             {/* Auto Total Footer */}
             {voyageCards.length > 1 && (
-              <div className="grid grid-cols-3 gap-2 border-t border-slate-800 pt-4 mt-4 text-xs font-semibold">
+              <div className="grid grid-cols-3 gap-2 border-t border-app pt-4 mt-4 text-xs font-semibold">
                 <div>
-                  <div className="text-[10px] text-slate-500 font-bold">
+                  <div className="text-[10px] text-muted-app font-bold">
                     CUMULATIVE GROSS
                   </div>
-                  <div className="font-bold font-mono text-slate-100 text-sm mt-0.5">
+                  <div className="font-bold font-mono text-app text-sm mt-0.5">
                     {inrFmt(totalVoyageGrossINR)}
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-slate-500 font-bold">
+                  <div className="text-[10px] text-muted-app font-bold">
                     TOTAL TAX
                   </div>
-                  <div className="font-bold font-mono text-red-400 text-sm mt-0.5">
+                  <div className="font-bold font-mono text-rose-600 text-sm mt-0.5">
                     {inrFmt(totalVoyageTaxINR)}
                   </div>
                   {totalVoyageTaxINR > 0 && (
-                    <span className="text-[10px] text-slate-500 font-normal">
+                    <span className="text-[10px] text-muted-app font-normal">
                       Eff:{" "}
                       {(
                         (totalVoyageTaxINR / totalVoyageGrossINR) *
@@ -414,10 +414,10 @@ export default function TaxCalculator({
                   )}
                 </div>
                 <div>
-                  <div className="text-[10px] text-slate-500 font-bold">
+                  <div className="text-[10px] text-muted-app font-bold">
                     TOTAL NET INCOME
                   </div>
-                  <div className="font-bold font-mono text-emerald-400 text-sm mt-0.5">
+                  <div className="font-bold font-mono text-emerald-700 text-sm mt-0.5">
                     {inrFmt(totalVoyageNetINR)}
                   </div>
                 </div>
@@ -427,12 +427,12 @@ export default function TaxCalculator({
         )}
 
         {/* Manual Tax Calculator Form */}
-        <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-3xl p-6 shadow-md">
-          <h3 className="text-xs font-bold tracking-widest text-slate-400 uppercase flex items-center gap-2 mb-2">
-            <span className="w-1.5 h-3 bg-emerald-500 rounded-sm"></span> 🧮
+        <div className="card-surface rounded-3xl p-6 shadow-sm">
+          <h3 className="text-xs font-bold tracking-widest text-app uppercase flex items-center gap-2 mb-2">
+            <span className="w-1.5 h-3 bg-emerald-600 rounded-sm"></span> 🧮
             Manual Tax Calculator
           </h3>
-          <p className="text-xs text-slate-500 mb-5 leading-relaxed">
+          <p className="text-xs text-muted-app mb-5 leading-relaxed">
             New Tax Regime &bull; Input custom annual figures to estimate taxes
             instantly.
           </p>
@@ -568,13 +568,13 @@ export default function TaxCalculator({
 
           {/* Results Summary */}
           {currentGrossINR > 0 && (
-            <div className="border-t border-slate-850 pt-5 mt-5 animate-fadeUp">
+            <div className="border-t border-app pt-5 mt-5 animate-fadeUp">
               {isNriManual ? (
-                <div className="bg-emerald-500/5 border border-emerald-500/15 p-4 rounded-xl text-xs md:text-sm font-mono leading-relaxed text-emerald-400 mb-4 flex items-center gap-3">
+                <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-xs md:text-sm font-mono leading-relaxed text-emerald-900 mb-4 flex items-center gap-3">
                   <span className="text-xl">✓</span>
                   <div>
                     <strong>NRI Status: Zero Tax on foreign salary.</strong>
-                    <div className="text-xs text-slate-500 mt-1 font-sans">
+                    <div className="text-xs text-muted-app mt-1 font-sans">
                       All ship salary received outside India is completely
                       exempt under Section 10(6)(viii).
                     </div>
@@ -586,13 +586,13 @@ export default function TaxCalculator({
                   <div className="space-y-2 text-xs md:text-sm">
                     <div className={rowCls}>
                       <span className={valLabelCls}>Gross Income</span>
-                      <span className="font-bold font-mono text-slate-300">
+                      <span className="font-bold font-mono text-app">
                         {inrFmt(currentGrossINR)}
                       </span>
                     </div>
                     <div className={rowCls}>
                       <span className={valLabelCls}>Standard Deduction</span>
-                      <span className="font-bold font-mono text-emerald-400">
+                      <span className="font-bold font-mono text-emerald-700">
                         − {inrFmt(manualTaxResult.stdDeduction)}
                       </span>
                     </div>
@@ -601,22 +601,22 @@ export default function TaxCalculator({
                         <span className={valLabelCls}>
                           80C / 80D Deductions
                         </span>
-                        <span className="font-bold font-mono text-emerald-400">
+                        <span className="font-bold font-mono text-emerald-700">
                           − {inrFmt(150000)}
                         </span>
                       </div>
                     )}
                     <div className={rowCls}>
-                      <span className="text-slate-500 font-semibold">
+                      <span className="text-muted-app font-semibold">
                         Taxable Income
                       </span>
-                      <span className="font-bold font-mono text-slate-100">
+                      <span className="font-bold font-mono text-app">
                         {inrFmt(manualTaxResult.taxable)}
                       </span>
                     </div>
                     <div className={rowCls}>
                       <span className={valLabelCls}>Tax Before Cess</span>
-                      <span className="font-bold font-mono text-slate-300">
+                      <span className="font-bold font-mono text-app">
                         {inrFmt(manualTaxResult.taxBeforeCess)}
                       </span>
                     </div>
@@ -625,20 +625,20 @@ export default function TaxCalculator({
                         <span className={valLabelCls}>
                           Health &amp; Ed. Cess (4%)
                         </span>
-                        <span className="font-bold font-mono text-slate-400">
+                        <span className="font-bold font-mono text-muted-app">
                           {inrFmt(manualTaxResult.cess)}
                         </span>
                       </div>
                     )}
-                    <div className="flex justify-between py-2 border-b border-slate-800 text-sm font-bold">
-                      <span className="text-slate-200">
+                    <div className="flex justify-between py-2 border-b border-app text-sm font-bold">
+                      <span className="text-app">
                         Total Estimated Tax
                       </span>
-                      <span className="font-mono text-red-500">
+                      <span className="font-mono text-rose-600">
                         {inrFmt(manualTaxDue)}
                       </span>
                     </div>
-                    <div className="flex justify-between py-2 text-sm font-bold text-emerald-400">
+                    <div className="flex justify-between py-2 text-sm font-bold text-emerald-700">
                       <span>Net Take-Home</span>
                       <span className="font-mono">
                         {inrFmt(manualNetTakeHome)}
@@ -647,16 +647,16 @@ export default function TaxCalculator({
                   </div>
 
                   {/* Slabs list */}
-                  <div className="text-xs bg-slate-950 p-4 rounded-xl border border-slate-850 flex flex-col justify-between">
+                  <div className="text-xs bg-recessed p-4 rounded-xl border border-app flex flex-col justify-between">
                     <div>
-                      <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-2">
+                      <div className="text-[10px] text-muted-app font-bold uppercase tracking-wider mb-2">
                         {getTaxConfig(selectedFYYear, "new").regimeLabel}
                       </div>
                       <div className="space-y-1">
                         {manualTaxResult.slabsBreakdown.map((s, i) => (
                           <div
                             key={i}
-                            className="flex justify-between text-slate-400 font-mono"
+                            className="flex justify-between text-app font-mono"
                           >
                             <span>
                               {s.text} ({(s.rate * 100).toFixed(0)}%)
@@ -667,7 +667,7 @@ export default function TaxCalculator({
                       </div>
                     </div>
 
-                    <div className="text-[10px] text-slate-500 leading-normal border-t border-slate-900 pt-3 mt-4">
+                    <div className="text-[10px] text-muted-app leading-normal border-t border-app pt-3 mt-4">
                       Rebate Limit: ₹
                       {getTaxConfig(
                         selectedFYYear,

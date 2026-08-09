@@ -95,18 +95,26 @@ html, body, #root {
 }
 
 /* Custom UI Utility Components adhering to design-system.md */
-.app-card {
+.app-card, .card-surface {
   background-color: var(--app-surface);
   border: 1px solid var(--app-border);
+  color: var(--app-text);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   border-radius: 20px;
 }
 
-.app-recessed {
+.app-recessed, .card-recessed {
   background-color: var(--app-recessed);
   border: 1px solid var(--app-border);
+  color: var(--app-text);
   border-radius: 16px;
 }
+
+.bg-surface { background-color: var(--app-surface); }
+.bg-recessed { background-color: var(--app-recessed); }
+.border-app { border-color: var(--app-border); }
+.text-app { color: var(--app-text); }
+.text-muted-app { color: var(--app-muted); }
 
 .btn-primary-cta {
   background-color: var(--app-primary);

@@ -257,21 +257,21 @@ export default function Dashboard({
       <div className="max-w-7xl mx-auto p-3 sm:p-4 md:p-6 lg:p-8 pb-20 md:pb-8 w-full">
         {/* Non-Intrusive Mobile-Friendly Cloud Sync Reminder Banner */}
         {!cloudAccount && !isBannerDismissed && (
-          <div className="bg-slate-900/90 border border-slate-800/90 rounded-xl p-2.5 sm:p-3 mb-3 flex items-center justify-between gap-2 shadow-md min-w-0">
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-2.5 sm:p-3 mb-3 flex items-center justify-between gap-2 shadow-sm min-w-0">
             <div className="flex items-center gap-2 min-w-0 flex-1">
-              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center shrink-0">
+              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-100 text-amber-700 border border-amber-200 flex items-center justify-center shrink-0">
                 <Smartphone className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-1.5 flex-wrap">
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-100 truncate">
+                  <span className="text-[11px] sm:text-xs font-bold text-amber-950 truncate">
                     Guest Mode
                   </span>
-                  <span className="text-[9px] sm:text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.2 rounded border border-slate-700 shrink-0">
+                  <span className="text-[9px] sm:text-[10px] bg-amber-100/80 text-amber-800 px-1.5 py-0.2 rounded border border-amber-200 shrink-0">
                     100% Private
                   </span>
                 </div>
-                <p className="text-[10px] sm:text-[11px] text-slate-400 truncate mt-0.5">
+                <p className="text-[10px] sm:text-[11px] text-amber-700 truncate mt-0.5">
                   Saved on device &bull; Connect Google to back up
                 </p>
               </div>
@@ -280,14 +280,14 @@ export default function Dashboard({
             <div className="flex items-center gap-1 shrink-0">
               <button
                 onClick={onOpenCloudModal}
-                className="px-2 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] sm:text-[11px] font-bold transition-all flex items-center gap-1 cursor-pointer shrink-0"
+                className="px-2.5 py-1 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white text-[10px] sm:text-[11px] font-bold transition-all flex items-center gap-1 cursor-pointer shrink-0 border-none"
               >
                 <span>Sync</span>
                 <ArrowRight className="w-3 h-3" />
               </button>
               <button
                 onClick={() => setIsBannerDismissed(true)}
-                className="text-slate-500 hover:text-slate-300 p-0.5 rounded-lg cursor-pointer border-none bg-transparent"
+                className="text-amber-700 hover:text-amber-900 p-0.5 rounded-lg cursor-pointer border-none bg-transparent"
                 title="Dismiss banner"
               >
                 <X className="w-3.5 h-3.5" />
@@ -297,19 +297,19 @@ export default function Dashboard({
         )}
 
         {/* Welcome Block - Compact Banner */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 border border-slate-800 rounded-2xl lg:rounded-3xl p-4 sm:p-5 lg:p-8 mb-4 lg:mb-6 shadow-lg">
+        <div className="relative overflow-hidden bg-emerald-900 border border-emerald-800 rounded-2xl lg:rounded-3xl p-4 sm:p-5 lg:p-8 mb-4 lg:mb-6 shadow-md text-white">
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 lg:gap-4">
             <div className="min-w-0">
               <h2 className="text-lg sm:text-xl lg:text-3xl font-bold tracking-tight text-white flex items-center gap-2 lg:gap-3 truncate">
                 Welcome back, {cloudAccount?.name || profile.name || "Seafarer"}{" "}
-                <Anchor className="w-5 h-5 lg:w-7 lg:h-7 text-emerald-500 shrink-0 inline" />
+                <Anchor className="w-5 h-5 lg:w-7 lg:h-7 text-emerald-300 shrink-0 inline" />
               </h2>
-              <p className="text-xs lg:text-base text-slate-300 max-w-2xl leading-relaxed mt-1 lg:mt-2 measure-prose">
+              <p className="text-xs lg:text-base text-emerald-100 max-w-2xl leading-relaxed mt-1 lg:mt-2 measure-prose">
                 Track your NRI tax status and seatime across financial years.
                 Stay on top of your {nriThreshold}-day target.
               </p>
             </div>
-            <div className="text-[11px] lg:text-sm text-slate-400 font-mono shrink-0 sm:text-right">
+            <div className="text-[11px] lg:text-sm text-emerald-200 font-mono shrink-0 sm:text-right">
               {now.toLocaleDateString("en-IN", {
                 weekday: "short",
                 year: "numeric",
@@ -320,33 +320,33 @@ export default function Dashboard({
           </div>
 
           {/* Wave decorative animations */}
-          <div className="absolute inset-x-0 bottom-0 h-6 lg:h-12 pointer-events-none opacity-15">
-            <div className="absolute bottom-0 w-[200%] h-4 lg:h-8 bg-emerald-400/10 rounded-[40%] animate-[wave_10s_linear_infinite]"></div>
-            <div className="absolute bottom-0 w-[200%] h-4 lg:h-8 bg-teal-400/10 rounded-[35%] animate-[wave_12s_linear_infinite_reverse]"></div>
+          <div className="absolute inset-x-0 bottom-0 h-6 lg:h-12 pointer-events-none opacity-20">
+            <div className="absolute bottom-0 w-[200%] h-4 lg:h-8 bg-white/10 rounded-[40%] animate-[wave_10s_linear_infinite]"></div>
+            <div className="absolute bottom-0 w-[200%] h-4 lg:h-8 bg-white/10 rounded-[35%] animate-[wave_12s_linear_infinite_reverse]"></div>
           </div>
         </div>
 
         {/* Bento Grid Stats - Tablet: 2 cols, Desktop: 3 cols */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6 mb-4 lg:mb-6">
           {/* Card 1: NRI Progress */}
-          <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-xl lg:rounded-2xl p-4 lg:p-6 flex flex-col justify-between shadow-md min-w-0 transition-all hover:bg-slate-800/40">
+          <div className="card-surface rounded-xl lg:rounded-2xl p-4 lg:p-6 flex flex-col justify-between shadow-sm min-w-0">
             <div className="flex justify-between items-center mb-2 lg:mb-4 gap-2 min-w-0">
               <div className="flex items-center gap-2 lg:gap-3 min-w-0">
-                <div className="w-7 h-7 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
-                  <Shield className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-400" />
+                <div className="w-7 h-7 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
+                  <Shield className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-700" />
                 </div>
-                <span className="text-xs lg:text-sm font-semibold text-slate-400 truncate">
+                <span className="text-xs lg:text-sm font-semibold text-muted-app truncate">
                   FY {curFYKey.replace("-", "–")}
                 </span>
               </div>
-              <span className="text-base lg:text-2xl font-bold font-mono tabular-nums text-slate-100 shrink-0">
+              <span className="text-base lg:text-2xl font-bold font-mono tabular-nums text-app shrink-0">
                 {outsideDays}/{nriThreshold}d
               </span>
             </div>
             <div>
-              <div className="progress-bar w-full bg-slate-800 h-2 lg:h-2.5 rounded-full overflow-hidden">
+              <div className="progress-bar w-full bg-recessed border border-app h-2 lg:h-2.5 rounded-full overflow-hidden">
                 <div
-                  className={`h-full rounded-full transition-all duration-1000 ${isNRIAchieved ? "bg-emerald-500" : "bg-red-500"}`}
+                  className={`h-full rounded-full transition-all duration-1000 ${isNRIAchieved ? "bg-emerald-600" : "bg-red-500"}`}
                   style={{ width: `${pct}%` }}
                 ></div>
               </div>
@@ -354,43 +354,43 @@ export default function Dashboard({
           </div>
 
           {/* Card 2: Total Seatime */}
-          <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-xl lg:rounded-2xl p-4 lg:p-6 flex flex-col justify-between shadow-md min-w-0 transition-all hover:bg-slate-800/40">
+          <div className="card-surface rounded-xl lg:rounded-2xl p-4 lg:p-6 flex flex-col justify-between shadow-sm min-w-0">
             <div className="flex justify-between items-center mb-2 lg:mb-4 gap-2 min-w-0">
               <div className="flex items-center gap-2 lg:gap-3 min-w-0">
-                <div className="w-7 h-7 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0">
-                  <Clock className="w-4 h-4 lg:w-5 lg:h-5 text-amber-400" />
+                <div className="w-7 h-7 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4 lg:w-5 lg:h-5 text-amber-700" />
                 </div>
-                <span className="text-xs lg:text-sm font-semibold text-slate-400 truncate">
+                <span className="text-xs lg:text-sm font-semibold text-muted-app truncate">
                   Career Seatime
                 </span>
               </div>
-              <span className="text-base lg:text-2xl font-bold font-mono tabular-nums text-slate-100 shrink-0">
+              <span className="text-base lg:text-2xl font-bold font-mono tabular-nums text-app shrink-0">
                 {totalSeaDays.toLocaleString()}d
               </span>
             </div>
-            <div className="text-[11px] lg:text-sm text-slate-500 font-mono tabular-nums truncate">
+            <div className="text-[11px] lg:text-sm text-muted-app font-mono tabular-nums truncate">
               Across all logged voyages
             </div>
           </div>
 
           {/* Card 3: Deadline Countdown */}
-          <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-xl lg:rounded-2xl p-4 lg:p-6 flex flex-col justify-between shadow-md min-w-0 md:col-span-2 lg:col-span-1 transition-all hover:bg-slate-800/40">
+          <div className="card-surface rounded-xl lg:rounded-2xl p-4 lg:p-6 flex flex-col justify-between shadow-sm min-w-0 md:col-span-2 lg:col-span-1">
             <div className="flex justify-between items-center mb-2 lg:mb-4 gap-2 min-w-0">
               <div className="flex items-center gap-2 lg:gap-3 min-w-0">
-                <div className="w-7 h-7 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
-                  <Calendar className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-400" />
+                <div className="w-7 h-7 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
+                  <Calendar className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-700" />
                 </div>
                 <span
-                  className={`text-xs lg:text-sm font-semibold truncate ${isDeadlinePassed ? "text-red-400" : "text-slate-400"}`}
+                  className={`text-xs lg:text-sm font-semibold truncate ${isDeadlinePassed ? "text-red-600" : "text-muted-app"}`}
                 >
                   {deadlineSub}
                 </span>
               </div>
-              <span className="text-base lg:text-2xl font-bold text-slate-100 font-mono tabular-nums shrink-0">
+              <span className="text-base lg:text-2xl font-bold text-app font-mono tabular-nums shrink-0">
                 {deadlineText}
               </span>
             </div>
-            <div className="text-[11px] lg:text-sm text-slate-500 font-mono truncate">
+            <div className="text-[11px] lg:text-sm text-muted-app font-mono truncate">
               Latest departure date
             </div>
           </div>
@@ -403,26 +403,26 @@ export default function Dashboard({
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 lg:gap-6 mb-4 lg:mb-8">
           <button
             onClick={onOpenVoyageModal}
-            className="btn-neu-primary flex items-center justify-center gap-1.5 lg:gap-2 px-3 py-2.5 lg:px-4 lg:py-4 rounded-xl lg:rounded-2xl font-bold text-xs lg:text-base bg-gradient-to-r from-emerald-500 to-teal-500 text-white cursor-pointer truncate"
+            className="flex items-center justify-center gap-1.5 lg:gap-2 px-3 py-2.5 lg:px-4 lg:py-4 rounded-xl lg:rounded-2xl font-bold text-xs lg:text-base bg-emerald-700 hover:bg-emerald-800 text-white cursor-pointer truncate shadow-sm border-none transition-all"
           >
             <span className="text-lg lg:text-2xl leading-none">+</span> Log
             Voyage
           </button>
           <button
             onClick={() => onNavigate("nri")}
-            className="btn-neu px-3 py-2.5 lg:px-4 lg:py-4 rounded-xl lg:rounded-2xl font-semibold text-xs lg:text-base bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700/80 cursor-pointer text-center truncate"
+            className="px-3 py-2.5 lg:px-4 lg:py-4 rounded-xl lg:rounded-2xl font-semibold text-xs lg:text-base bg-surface hover:bg-recessed text-app border border-app cursor-pointer text-center truncate shadow-sm transition-all"
           >
             NRI Status
           </button>
           <button
             onClick={() => onNavigate("fy")}
-            className="btn-neu px-3 py-2.5 lg:px-4 lg:py-4 rounded-xl lg:rounded-2xl font-semibold text-xs lg:text-base bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700/80 cursor-pointer text-center truncate"
+            className="px-3 py-2.5 lg:px-4 lg:py-4 rounded-xl lg:rounded-2xl font-semibold text-xs lg:text-base bg-surface hover:bg-recessed text-app border border-app cursor-pointer text-center truncate shadow-sm transition-all"
           >
             FY Overview
           </button>
           <button
             onClick={() => onNavigate("sea")}
-            className="btn-neu px-3 py-2.5 lg:px-4 lg:py-4 rounded-xl lg:rounded-2xl font-semibold text-xs lg:text-base bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700/80 cursor-pointer text-center truncate"
+            className="px-3 py-2.5 lg:px-4 lg:py-4 rounded-xl lg:rounded-2xl font-semibold text-xs lg:text-base bg-surface hover:bg-recessed text-app border border-app cursor-pointer text-center truncate shadow-sm transition-all"
           >
             Analytics
           </button>
@@ -431,31 +431,31 @@ export default function Dashboard({
         {/* Layout Sections: Recent Voyages & Chart */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
           {/* Recent Voyages (Left / Bento) */}
-          <div className="lg:col-span-5 bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-2xl lg:rounded-3xl p-4 lg:p-6 shadow-md flex flex-col justify-between transition-all hover:bg-slate-800/40">
+          <div className="lg:col-span-5 card-surface rounded-2xl lg:rounded-3xl p-4 lg:p-6 shadow-sm flex flex-col justify-between">
             <div className="flex justify-between items-center mb-3 lg:mb-5">
-              <h3 className="text-xs lg:text-sm font-bold tracking-widest text-slate-400 uppercase flex items-center gap-2">
-                <span className="w-1.5 h-3 lg:h-4 bg-emerald-500 rounded-sm"></span>{" "}
+              <h3 className="text-xs lg:text-sm font-bold tracking-widest text-app uppercase flex items-center gap-2">
+                <span className="w-1.5 h-3 lg:h-4 bg-emerald-600 rounded-sm"></span>{" "}
                 Recent Voyages
               </h3>
               <button
                 onClick={() => onNavigate("log")}
-                className="text-xs lg:text-sm font-semibold text-emerald-400 hover:text-emerald-300 cursor-pointer border-none bg-transparent"
+                className="text-xs lg:text-sm font-semibold text-emerald-700 hover:text-emerald-800 cursor-pointer border-none bg-transparent"
               >
                 View All
               </button>
             </div>
 
-            <div className="divide-y divide-slate-800/60 max-h-[200px] lg:max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+            <div className="divide-y divide-app max-h-[200px] lg:max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
               {recentVoyages.length === 0 ? (
-                <div className="text-center py-8 lg:py-16 text-slate-500 flex flex-col items-center justify-center">
+                <div className="text-center py-8 lg:py-16 text-muted-app flex flex-col items-center justify-center">
                   <Anchor
-                    className="w-8 h-8 lg:w-12 lg:h-12 text-slate-500 opacity-30 mb-2"
+                    className="w-8 h-8 lg:w-12 lg:h-12 text-muted-app opacity-40 mb-2"
                     strokeWidth={1.5}
                   />
-                  <h4 className="text-xs lg:text-base font-semibold text-slate-400">
+                  <h4 className="text-xs lg:text-base font-semibold text-app">
                     No voyages yet
                   </h4>
-                  <p className="text-[11px] lg:text-sm text-slate-500 mt-1 max-w-[220px] mx-auto leading-relaxed">
+                  <p className="text-[11px] lg:text-sm text-muted-app mt-1 max-w-[220px] mx-auto leading-relaxed">
                     Tap "Log Voyage" to add entry.
                   </p>
                 </div>
@@ -467,21 +467,21 @@ export default function Dashboard({
                     dep && arr && arr >= dep ? daysBetween(dep, arr) : 0;
                   const pillClass =
                     days >= 60
-                      ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                      ? "bg-emerald-50 text-emerald-800 border-emerald-200"
                       : days >= 30
-                        ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
-                        : "bg-red-500/10 text-red-400 border-red-500/20";
+                        ? "bg-amber-50 text-amber-800 border-amber-200"
+                        : "bg-red-50 text-red-800 border-red-200";
 
                   return (
                     <div
                       key={s.id}
-                      className="py-2.5 lg:py-3.5 flex justify-between items-center gap-3 hover:bg-slate-800/60 px-2 lg:px-3 rounded-xl transition-colors"
+                      className="py-2.5 lg:py-3.5 flex justify-between items-center gap-3 hover:bg-recessed px-2 lg:px-3 rounded-xl transition-colors"
                     >
                       <div className="min-w-0 flex-1">
-                        <div className="font-semibold text-xs lg:text-base text-slate-200 truncate">
+                        <div className="font-semibold text-xs lg:text-base text-app truncate">
                           {s.vessel || "Unnamed Vessel"}
                         </div>
-                        <div className="text-[10px] lg:text-xs font-mono text-slate-500 mt-0.5 lg:mt-1">
+                        <div className="text-[10px] lg:text-xs font-mono text-muted-app mt-0.5 lg:mt-1">
                           {dep?.toLocaleDateString("en-IN", {
                             day: "2-digit",
                             month: "short",
@@ -506,17 +506,17 @@ export default function Dashboard({
           </div>
 
           {/* Bar Chart (Right / Bento Wide) */}
-          <div className="lg:col-span-7 bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-2xl lg:rounded-3xl p-4 lg:p-6 shadow-md flex flex-col justify-between transition-all hover:bg-slate-800/40">
-            <h3 className="text-xs lg:text-sm font-bold tracking-widest text-slate-400 uppercase flex items-center gap-2 mb-3 lg:mb-5">
-              <span className="w-1.5 h-3 lg:h-4 bg-emerald-500 rounded-sm"></span>{" "}
+          <div className="lg:col-span-7 card-surface rounded-2xl lg:rounded-3xl p-4 lg:p-6 shadow-sm flex flex-col justify-between">
+            <h3 className="text-xs lg:text-sm font-bold tracking-widest text-app uppercase flex items-center gap-2 mb-3 lg:mb-5">
+              <span className="w-1.5 h-3 lg:h-4 bg-emerald-600 rounded-sm"></span>{" "}
               FY Summary
             </h3>
             <div className="relative w-full h-[200px] md:h-[260px] lg:h-[300px] flex-1">
               {Object.keys(fyData).length === 0 ? (
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-500 text-center">
-                  <BarChart3 className="w-7 h-7 text-slate-500 opacity-30 mb-1" />
-                  <p className="text-xs font-semibold">No data available</p>
-                  <p className="text-[10px] text-slate-500 mt-0.5">
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-app text-center">
+                  <BarChart3 className="w-7 h-7 text-muted-app opacity-40 mb-1" />
+                  <p className="text-xs font-semibold text-app">No data available</p>
+                  <p className="text-[10px] text-muted-app mt-0.5">
                     Add voyages to view charts
                   </p>
                 </div>

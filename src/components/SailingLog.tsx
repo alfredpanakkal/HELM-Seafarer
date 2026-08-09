@@ -98,10 +98,10 @@ export default function SailingLog({
     <div id="page-log" className="page active animate-fadeUp">
       <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 pb-24 md:pb-8">
         <div className="page-header mb-6 lg:mb-8">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-2 lg:mb-3">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-app mb-2 lg:mb-3">
             Sailing Log
           </h1>
-          <p className="text-sm lg:text-base text-slate-400 measure-prose">
+          <p className="text-sm lg:text-base text-muted-app measure-prose">
             Track your voyages. Enter sign-on and sign-off dates to calculate
             NRI days.
           </p>
@@ -112,70 +112,70 @@ export default function SailingLog({
           className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 lg:gap-6 mb-6 lg:mb-8"
           id="log-stats"
         >
-          <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4 flex flex-col items-start gap-1 shadow-md">
-            <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center">
-              <Ship className="w-5 h-5 text-emerald-400" />
+          <div className="card-surface rounded-xl p-4 flex flex-col items-start gap-1 shadow-sm">
+            <div className="w-9 h-9 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center">
+              <Ship className="w-5 h-5 text-emerald-700" />
             </div>
-            <div className="text-xl md:text-2xl font-bold text-white font-mono tabular-nums mt-1">
+            <div className="text-xl md:text-2xl font-bold text-app font-mono tabular-nums mt-1">
               {totalVoyages}
             </div>
-            <div className="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">
+            <div className="text-[11px] text-muted-app font-semibold uppercase tracking-wider">
               Voyages Logged
             </div>
           </div>
-          <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4 flex flex-col items-start gap-1 shadow-md">
-            <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center">
-              <Anchor className="w-5 h-5 text-emerald-400" />
+          <div className="card-surface rounded-xl p-4 flex flex-col items-start gap-1 shadow-sm">
+            <div className="w-9 h-9 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center">
+              <Anchor className="w-5 h-5 text-emerald-700" />
             </div>
-            <div className="text-base font-bold text-white truncate max-w-full mt-1">
+            <div className="text-base font-bold text-app truncate max-w-full mt-1">
               {latestVessel}
             </div>
-            <div className="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">
+            <div className="text-[11px] text-muted-app font-semibold uppercase tracking-wider">
               Latest Vessel
             </div>
           </div>
-          <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4 flex flex-col items-start gap-1 shadow-md">
-            <div className="w-9 h-9 rounded-lg bg-amber-500/10 flex items-center justify-center">
-              <Calendar className="w-5 h-5 text-amber-400" />
+          <div className="card-surface rounded-xl p-4 flex flex-col items-start gap-1 shadow-sm">
+            <div className="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center">
+              <Calendar className="w-5 h-5 text-amber-700" />
             </div>
-            <div className="text-xl md:text-2xl font-bold text-white font-mono tabular-nums mt-1">
+            <div className="text-xl md:text-2xl font-bold text-app font-mono tabular-nums mt-1">
               {currentFYDays}
             </div>
-            <div className="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">
+            <div className="text-[11px] text-muted-app font-semibold uppercase tracking-wider">
               Days this FY
             </div>
           </div>
-          <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4 flex flex-col items-start gap-1 shadow-md">
-            <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center">
-              <Award className="w-5 h-5 text-emerald-400" />
+          <div className="card-surface rounded-xl p-4 flex flex-col items-start gap-1 shadow-sm">
+            <div className="w-9 h-9 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center">
+              <Award className="w-5 h-5 text-emerald-700" />
             </div>
-            <div className="text-xl md:text-2xl font-bold text-white font-mono tabular-nums mt-1">
+            <div className="text-xl md:text-2xl font-bold text-app font-mono tabular-nums mt-1">
               {longestDays > 0 ? `${longestDays}d` : "0"}
             </div>
-            <div className="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">
+            <div className="text-[11px] text-muted-app font-semibold uppercase tracking-wider">
               Longest Voyage
             </div>
           </div>
         </div>
 
         {/* Voyage Entries Controls */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 bg-slate-900/40 p-3 rounded-2xl border border-slate-800">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 bg-recessed p-3 rounded-2xl border border-app">
           <div className="flex flex-wrap items-center gap-3 flex-1">
             <div className="relative flex-1 min-w-[200px]">
-              <Search className="w-3.5 h-3.5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+              <Search className="w-3.5 h-3.5 text-muted-app absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 placeholder="Search vessel name or rank..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl pl-9 pr-3 py-1.5 text-xs text-slate-200 outline-none"
+                className="w-full bg-surface border border-app focus:border-emerald-600 rounded-xl pl-9 pr-3 py-1.5 text-xs text-app outline-none"
               />
             </div>
 
             <select
               value={portFilter}
               onChange={(e) => setPortFilter(e.target.value)}
-              className="bg-slate-950 border border-slate-800 text-xs text-slate-300 rounded-xl px-3 py-1.5 outline-none focus:border-emerald-500"
+              className="bg-surface border border-app text-xs text-app rounded-xl px-3 py-1.5 outline-none focus:border-emerald-600"
             >
               <option value="all">All Port Types</option>
               <option value="indian">Indian CDC</option>
@@ -186,7 +186,7 @@ export default function SailingLog({
           <div className="flex flex-wrap gap-2 items-center shrink-0">
             <button
               onClick={() => setIsTranscriptOpen(true)}
-              className="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 cursor-pointer flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-700 hover:bg-emerald-800 text-white cursor-pointer flex items-center gap-1.5 border-none shadow-sm"
             >
               <FileText className="w-3.5 h-3.5" /> Sea Time Transcript
             </button>
@@ -195,7 +195,7 @@ export default function SailingLog({
             <div className="relative">
               <button
                 onClick={() => setIsExportOpen(!isExportOpen)}
-                className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 border border-slate-700 text-slate-300 hover:text-white cursor-pointer select-none flex items-center gap-1.5"
+                className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-app text-app hover:bg-recessed cursor-pointer select-none flex items-center gap-1.5 shadow-sm"
               >
                 <Download className="w-3.5 h-3.5" /> Export ▾
               </button>
@@ -205,15 +205,15 @@ export default function SailingLog({
                     className="fixed inset-0 z-10"
                     onClick={() => setIsExportOpen(false)}
                   ></div>
-                  <div className="absolute right-0 mt-1 w-48 bg-slate-900 border border-slate-800 rounded-xl shadow-xl overflow-hidden z-20">
+                  <div className="absolute right-0 mt-1 w-48 bg-surface border border-app rounded-xl shadow-lg overflow-hidden z-20">
                     <button
                       onClick={() => {
                         onExportJSON();
                         setIsExportOpen(false);
                       }}
-                      className="w-full px-4 py-2.5 text-left text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white border-none cursor-pointer flex items-center gap-2"
+                      className="w-full px-4 py-2.5 text-left text-xs font-medium text-app hover:bg-recessed border-none cursor-pointer flex items-center gap-2"
                     >
-                      <FileJson className="w-3.5 h-3.5 text-slate-400" /> JSON
+                      <FileJson className="w-3.5 h-3.5 text-muted-app" /> JSON
                       Backup
                     </button>
                     <button
@@ -221,9 +221,9 @@ export default function SailingLog({
                         onExportCSV();
                         setIsExportOpen(false);
                       }}
-                      className="w-full px-4 py-2.5 text-left text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white border-none cursor-pointer flex items-center gap-2"
+                      className="w-full px-4 py-2.5 text-left text-xs font-medium text-app hover:bg-recessed border-none cursor-pointer flex items-center gap-2"
                     >
-                      <FileSpreadsheet className="w-3.5 h-3.5 text-slate-400" />{" "}
+                      <FileSpreadsheet className="w-3.5 h-3.5 text-muted-app" />{" "}
                       CSV Spreadsheet
                     </button>
                     <button
@@ -231,9 +231,9 @@ export default function SailingLog({
                         onExportPDF();
                         setIsExportOpen(false);
                       }}
-                      className="w-full px-4 py-2.5 text-left text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white border-none cursor-pointer flex items-center gap-2"
+                      className="w-full px-4 py-2.5 text-left text-xs font-medium text-app hover:bg-recessed border-none cursor-pointer flex items-center gap-2"
                     >
-                      <Printer className="w-3.5 h-3.5 text-slate-400" /> Print /
+                      <Printer className="w-3.5 h-3.5 text-muted-app" /> Print /
                       PDF
                     </button>
                   </div>
@@ -243,13 +243,13 @@ export default function SailingLog({
 
             <button
               onClick={onImportPrompt}
-              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 border border-slate-700 text-slate-300 hover:text-white cursor-pointer flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-app text-app hover:bg-recessed cursor-pointer flex items-center gap-1.5 shadow-sm"
             >
               <FolderOpen className="w-3.5 h-3.5" /> Import
             </button>
             <button
               onClick={onClearAll}
-              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900/50 hover:bg-red-950/20 border border-slate-800 hover:border-red-900/30 text-slate-400 hover:text-red-400 cursor-pointer flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface hover:bg-rose-50 border border-app hover:border-rose-200 text-muted-app hover:text-rose-700 cursor-pointer flex items-center gap-1.5 shadow-sm"
             >
               <Trash2 className="w-3.5 h-3.5" /> Clear
             </button>
@@ -259,15 +259,15 @@ export default function SailingLog({
         {/* Voyage Cards List */}
         <div className="space-y-3 mb-8" id="voyage-list">
           {sortedSailings.length === 0 ? (
-            <div className="bg-slate-900/30 border border-slate-800/40 rounded-2xl p-12 text-center text-slate-500 shadow-inner flex flex-col items-center justify-center">
+            <div className="bg-recessed border border-app rounded-2xl p-12 text-center text-muted-app flex flex-col items-center justify-center">
               <Anchor
-                className="w-12 h-12 text-slate-500 mb-3 opacity-30"
+                className="w-12 h-12 text-muted-app mb-3 opacity-40"
                 strokeWidth={1.5}
               />
-              <h3 className="text-base font-semibold text-slate-400">
+              <h3 className="text-base font-semibold text-app">
                 No voyages logged yet
               </h3>
-              <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto leading-relaxed">
+              <p className="text-xs text-muted-app mt-1 max-w-sm mx-auto leading-relaxed">
                 Click the "+" button at the bottom right corner or "Log Voyage"
                 on the dashboard to log your sign-on/sign-off entries.
               </p>
@@ -279,33 +279,33 @@ export default function SailingLog({
               const days = dep && arr && arr >= dep ? daysBetween(dep, arr) : 0;
               const pillClass =
                 days >= 60
-                  ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                  ? "bg-emerald-50 text-emerald-800 border-emerald-200"
                   : days >= 30
-                    ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
-                    : "bg-red-500/10 text-red-400 border-red-500/20";
+                    ? "bg-amber-50 text-amber-800 border-amber-200"
+                    : "bg-red-50 text-red-800 border-red-200";
               const barPct =
                 longestDays > 0 ? (days / Math.max(longestDays, 90)) * 100 : 0;
 
               return (
                 <div
                   key={s.id}
-                  className="bg-slate-900/60 backdrop-blur-md border border-slate-800 border-l-4 border-l-emerald-500 rounded-2xl p-5 hover:translate-y-[-1px] hover:border-slate-700 transition-all shadow-md flex flex-col gap-3"
+                  className="card-surface border-l-4 border-l-emerald-600 rounded-2xl p-5 hover:translate-y-[-1px] transition-all shadow-sm flex flex-col gap-3"
                 >
                   <div className="flex justify-between items-start gap-4">
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <span className="font-bold text-slate-200 text-base leading-snug">
+                        <span className="font-bold text-app text-base leading-snug">
                           {s.vessel || "Unnamed Vessel"}
                         </span>
                         {s.rank && (
-                          <span className="text-[10px] font-semibold bg-slate-800 border border-slate-700/60 text-slate-400 rounded-full px-2 py-0.5">
+                          <span className="text-[10px] font-semibold bg-recessed border border-app text-muted-app rounded-full px-2 py-0.5">
                             {s.rank}
                           </span>
                         )}
                       </div>
-                      <div className="text-xs font-mono text-slate-500 flex items-center gap-1.5">
+                      <div className="text-xs font-mono text-muted-app flex items-center gap-1.5">
                         <span>{dep ? formatDateStr(dep) : "—"}</span>
-                        <span className="text-slate-600">→</span>
+                        <span className="text-muted-app">→</span>
                         <span>{arr ? formatDateStr(arr) : "—"}</span>
                       </div>
                     </div>
@@ -313,14 +313,14 @@ export default function SailingLog({
                     <div className="flex gap-1.5 flex-shrink-0">
                       <button
                         onClick={() => onOpenVoyageModal(s.id)}
-                        className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700/80 text-slate-400 hover:text-slate-200 flex items-center justify-center transition-colors cursor-pointer"
+                        className="w-8 h-8 rounded-lg bg-surface border border-app text-muted-app hover:text-app hover:bg-recessed flex items-center justify-center transition-colors cursor-pointer"
                         title="Edit Voyage"
                       >
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={() => onDeleteVoyage(s.id)}
-                        className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700/80 text-slate-400 hover:text-rose-400 flex items-center justify-center transition-colors cursor-pointer"
+                        className="w-8 h-8 rounded-lg bg-surface border border-app text-muted-app hover:text-rose-700 hover:bg-rose-50 flex items-center justify-center transition-colors cursor-pointer"
                         title="Delete Voyage"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -334,21 +334,21 @@ export default function SailingLog({
                     >
                       {days} Days total
                     </span>
-                    <span className="text-[10px] font-semibold bg-slate-800/40 border border-slate-800 text-slate-400 rounded-full px-2 py-0.5 flex items-center gap-1">
+                    <span className="text-[10px] font-semibold bg-recessed border border-app text-muted-app rounded-full px-2 py-0.5 flex items-center gap-1">
                       {s.portType === "indian" ? (
                         <>
-                          <Anchor className="w-2.5 h-2.5 text-slate-500" /> CDC
+                          <Anchor className="w-2.5 h-2.5 text-muted-app" /> CDC
                           (Indian Port)
                         </>
                       ) : (
                         <>
-                          <Globe className="w-2.5 h-2.5 text-slate-500" />{" "}
+                          <Globe className="w-2.5 h-2.5 text-muted-app" />{" "}
                           Passport (Foreign Port)
                         </>
                       )}
                     </span>
                     {s.monthlySalary ? (
-                      <span className="text-[10px] font-semibold bg-slate-800/40 border border-slate-800 text-slate-400 rounded-full px-2 py-0.5">
+                      <span className="text-[10px] font-semibold bg-recessed border border-app text-muted-app rounded-full px-2 py-0.5">
                         ${s.monthlySalary.toLocaleString()}/mo
                         {s.usdRate ? ` · ₹${s.usdRate}` : ""}
                       </span>
@@ -356,7 +356,7 @@ export default function SailingLog({
                   </div>
 
                   {/* Horizontal visual indicator timeline bar */}
-                  <div className="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                  <div className="w-full bg-recessed border border-app h-1 rounded-full overflow-hidden">
                     <div
                       className="bg-gradient-to-r from-emerald-500 to-teal-500 h-full rounded-full transition-all duration-500"
                       style={{ width: `${barPct}%` }}
@@ -369,15 +369,15 @@ export default function SailingLog({
         </div>
 
         {/* Seafarer Profile (Sticky/Permanent Bento panel) */}
-        <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-6 shadow-lg">
-          <h3 className="text-xs font-bold tracking-widest text-slate-400 uppercase flex items-center gap-2 mb-4">
-            <span className="w-1.5 h-3 bg-emerald-500 rounded-sm"></span>{" "}
+        <div className="card-surface border border-app rounded-2xl p-6 shadow-sm">
+          <h3 className="text-xs font-bold tracking-widest text-muted-app uppercase flex items-center gap-2 mb-4">
+            <span className="w-1.5 h-3 bg-emerald-600 rounded-sm"></span>{" "}
             Seafarer Profile
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-semibold text-slate-400">
+              <label className="text-xs font-semibold text-app">
                 Full Name
               </label>
               <input
@@ -385,11 +385,11 @@ export default function SailingLog({
                 value={profile.name}
                 onChange={(e) => onUpdateProfile("name", e.target.value)}
                 placeholder="Your Name"
-                className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20"
+                className="bg-recessed border border-app rounded-xl px-4 py-2.5 text-sm text-app outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600/20 shadow-sm"
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-semibold text-slate-400">
+              <label className="text-xs font-semibold text-app">
                 Current Rank
               </label>
               <input
@@ -397,11 +397,11 @@ export default function SailingLog({
                 value={profile.rank}
                 onChange={(e) => onUpdateProfile("rank", e.target.value)}
                 placeholder="e.g. 3rd Officer"
-                className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20"
+                className="bg-recessed border border-app rounded-xl px-4 py-2.5 text-sm text-app outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600/20 shadow-sm"
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-semibold text-slate-400">
+              <label className="text-xs font-semibold text-app">
                 Current Vessel
               </label>
               <input
@@ -409,32 +409,32 @@ export default function SailingLog({
                 value={profile.vessel}
                 onChange={(e) => onUpdateProfile("vessel", e.target.value)}
                 placeholder="e.g. MV Ocean Star"
-                className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20"
+                className="bg-recessed border border-app rounded-xl px-4 py-2.5 text-sm text-app outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600/20 shadow-sm"
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-semibold text-slate-400">
+              <label className="text-xs font-semibold text-app">
                 Date of Birth
               </label>
               <input
                 type="date"
                 value={profile.dob || ""}
                 onChange={(e) => onUpdateProfile("dob", e.target.value)}
-                className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20"
+                className="bg-recessed border border-app rounded-xl px-4 py-2.5 text-sm text-app outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600/20 shadow-sm"
               />
             </div>
             <div className="flex flex-col gap-1.5 sm:col-span-2">
-              <label className="text-xs font-semibold text-slate-400">
+              <label className="text-xs font-semibold text-app">
                 Primary Classification / Status
               </label>
-              <div className="grid grid-cols-2 gap-2 bg-slate-950 p-1 border border-slate-800 rounded-xl">
+              <div className="grid grid-cols-2 gap-2 bg-recessed p-1 border border-app rounded-xl">
                 <button
                   type="button"
                   onClick={() => onUpdateProfile("userType", "seafarer")}
-                  className={`py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     profile.userType !== "nri"
-                      ? "bg-emerald-500 text-white shadow"
-                      : "text-slate-400 hover:text-slate-200"
+                      ? "bg-emerald-700 text-white shadow-sm"
+                      : "text-muted-app hover:text-app"
                   }`}
                 >
                   Seafarer
@@ -442,10 +442,10 @@ export default function SailingLog({
                 <button
                   type="button"
                   onClick={() => onUpdateProfile("userType", "nri")}
-                  className={`py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     profile.userType === "nri"
-                      ? "bg-emerald-500 text-white shadow"
-                      : "text-slate-400 hover:text-slate-200"
+                      ? "bg-emerald-700 text-white shadow-sm"
+                      : "text-muted-app hover:text-app"
                   }`}
                 >
                   General NRI
@@ -456,22 +456,22 @@ export default function SailingLog({
         </div>
 
         {/* Chai4Me Support Block */}
-        <div className="text-center mt-12 pt-6 border-t border-slate-800/40">
-          <p className="text-[11px] font-semibold text-slate-300 tracking-wider uppercase mb-3">
+        <div className="text-center mt-12 pt-6 border-t border-app">
+          <p className="text-[11px] font-semibold text-muted-app tracking-wider uppercase mb-3">
             Enjoying the app? Support the developer
           </p>
           <a
             href="https://chai4.me/alfred"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-col items-center justify-center bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/50 rounded-2xl px-6 py-2.5 transition-all group active:scale-95 shadow-md shadow-amber-500/5"
+            className="inline-flex flex-col items-center justify-center bg-surface hover:bg-recessed border border-app hover:border-amber-500/50 rounded-2xl px-6 py-2.5 transition-all group active:scale-95 shadow-sm"
           >
             <img
               src="https://chai4.me/icons/wordmark.png"
               alt="Chai4Me"
               className="h-6 object-contain mb-1 chai4me-logo group-hover:scale-105 transition-transform"
             />
-            <span className="text-xs font-semibold text-amber-400">
+            <span className="text-xs font-semibold text-amber-700">
               @alfred
             </span>
           </a>

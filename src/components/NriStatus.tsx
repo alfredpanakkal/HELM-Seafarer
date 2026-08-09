@@ -41,19 +41,19 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
       <div id="page-nri" className="page active animate-fadeUp">
         <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 pb-24 md:pb-8">
           <div className="page-header mb-6">
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-2">
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-app mb-2">
               NRI Status
             </h1>
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-muted-app">
               Non-Resident Indian eligibility under the 184-day rule.
             </p>
           </div>
-          <div className="bg-slate-900/30 border border-slate-800/40 rounded-2xl p-12 text-center text-slate-500 shadow-inner flex flex-col items-center justify-center">
-            <Shield className="w-12 h-12 text-slate-500 mb-3 opacity-30 animate-pulse" />
-            <h3 className="text-base font-semibold text-slate-400">
+          <div className="card-surface border border-app rounded-2xl p-12 text-center text-muted-app shadow-sm flex flex-col items-center justify-center">
+            <Shield className="w-12 h-12 text-muted-app mb-3 opacity-40 animate-pulse" />
+            <h3 className="text-base font-semibold text-app">
               No sailing data available
             </h3>
-            <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto leading-relaxed">
+            <p className="text-xs text-muted-app mt-1 max-w-sm mx-auto leading-relaxed">
               Log your voyages in the Sailing Log first to compute your live NRI
               status and tax thresholds.
             </p>
@@ -142,32 +142,32 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
     <div id="page-nri" className="page active animate-fadeUp">
       <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 pb-24 md:pb-8">
         <div className="page-header mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-2">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-app mb-2">
             NRI Status
           </h1>
-          <p className="text-sm text-slate-400 measure-prose">
+          <p className="text-sm text-muted-app measure-prose">
             Non-Resident Indian eligibility under the 184-day rule.
           </p>
         </div>
 
         {/* FY Selector Card */}
-        <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-5 mb-6 shadow-md flex items-center justify-between">
+        <div className="card-surface border border-app rounded-2xl p-5 mb-6 shadow-sm flex items-center justify-between">
           <div className="flex flex-col gap-1 w-full max-w-[320px]">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <label className="text-xs font-semibold text-muted-app uppercase tracking-wider">
               Select Financial Year
             </label>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => navigateFY(-1)}
                 disabled={fyKeys.indexOf(selectedFY) === 0}
-                className="w-10 h-10 rounded-xl border border-slate-800 bg-slate-950 hover:bg-slate-800/80 text-slate-300 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center font-bold text-base cursor-pointer"
+                className="w-10 h-10 rounded-xl border border-app bg-recessed hover:bg-surface text-app disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center font-bold text-base cursor-pointer shadow-sm"
               >
                 ‹
               </button>
               <select
                 value={selectedFY}
                 onChange={(e) => setSelectedFY(e.target.value)}
-                className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-200 outline-none focus:border-emerald-500 cursor-pointer"
+                className="flex-1 bg-surface border border-app rounded-xl px-4 py-2.5 text-sm font-semibold text-app outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
               >
                 {fyKeys.map((fy) => (
                   <option key={fy} value={fy}>
@@ -178,7 +178,7 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
               <button
                 onClick={() => navigateFY(1)}
                 disabled={fyKeys.indexOf(selectedFY) === fyKeys.length - 1}
-                className="w-10 h-10 rounded-xl border border-slate-800 bg-slate-950 hover:bg-slate-800/80 text-slate-300 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center font-bold text-base cursor-pointer"
+                className="w-10 h-10 rounded-xl border border-app bg-recessed hover:bg-surface text-app disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center font-bold text-base cursor-pointer shadow-sm"
               >
                 ›
               </button>
@@ -187,7 +187,7 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
         </div>
 
         {/* Circular Progress Ring Card */}
-        <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-3xl p-6 md:p-8 mb-6 lg:mb-8 shadow-lg text-center flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12">
+        <div className="card-surface border border-app rounded-3xl p-6 md:p-8 mb-6 lg:mb-8 shadow-sm text-center flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12">
           {/* Ring Side */}
           <div className="flex flex-col items-center">
             <div className="relative w-52 h-52 md:w-60 md:h-60 mx-auto mb-4">
@@ -201,7 +201,7 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
                   cy="110"
                   r={radius}
                   fill="none"
-                  stroke="#1E293B"
+                  stroke="var(--app-border)"
                   strokeWidth={strokeWidth}
                 />
                 {/* Foreground progress circle */}
@@ -218,34 +218,35 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
                   className="transition-all duration-1000 ease-out"
                 />
               </svg>
+
               <div className="absolute inset-0 flex flex-col justify-center items-center">
-                <span className="text-4xl md:text-5xl lg:text-6xl font-bold font-mono tabular-nums text-slate-100 leading-none">
+                <span className="text-4xl md:text-5xl lg:text-6xl font-bold font-mono tabular-nums text-app leading-none">
                   {outside}
                 </span>
-                <span className="text-xs lg:text-sm text-slate-400 font-medium mt-1">
+                <span className="text-xs lg:text-sm text-muted-app font-medium mt-1">
                   of {threshold} days
                 </span>
               </div>
             </div>
 
-            <div className="text-xl md:text-2xl lg:text-3xl font-bold text-red-400 font-mono tabular-nums mb-4">
+            <div className="text-xl md:text-2xl lg:text-3xl font-bold text-emerald-600 font-mono tabular-nums mb-4">
               {Math.round(pct)}%
             </div>
           </div>
 
           {/* Stats Side */}
-          <div className="flex flex-col w-full max-w-lg lg:text-left border-t lg:border-t-0 lg:border-l border-slate-800/80 pt-6 lg:pt-0 lg:pl-12">
+          <div className="flex flex-col w-full max-w-lg lg:text-left border-t lg:border-t-0 lg:border-l border-app pt-6 lg:pt-0 lg:pl-12">
             <div className="flex justify-center lg:justify-start mb-6">
               {isNRI ? (
-                <span className="inline-flex items-center gap-1.5 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full text-xs lg:text-sm font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-md">
+                <span className="inline-flex items-center gap-1.5 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full text-xs lg:text-sm font-bold bg-emerald-100 text-emerald-800 border border-emerald-200 shadow-sm">
                   ✓ NRI Achieved &bull; {outside - threshold} days surplus
                 </span>
               ) : outside > 0 ? (
-                <span className="inline-flex items-center gap-1.5 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full text-xs lg:text-sm font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20 shadow-md">
+                <span className="inline-flex items-center gap-1.5 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full text-xs lg:text-sm font-bold bg-amber-100 text-amber-900 border border-amber-200 shadow-sm">
                   ⚠ {remaining} days short of target
                 </span>
               ) : (
-                <span className="inline-flex items-center gap-1.5 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full text-xs lg:text-sm font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20 shadow-md">
+                <span className="inline-flex items-center gap-1.5 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full text-xs lg:text-sm font-bold bg-rose-100 text-rose-800 border border-rose-200 shadow-sm">
                   ✕ Resident Indian Status
                 </span>
               )}
@@ -253,29 +254,29 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
 
             <div className="grid grid-cols-2 gap-4 md:gap-8 lg:gap-12 mb-6">
               <div>
-                <div className="text-[10px] lg:text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">
+                <div className="text-[10px] lg:text-xs text-muted-app font-bold uppercase tracking-wider mb-1">
                   Days Outside India
                 </div>
-                <div className="text-2xl md:text-3xl lg:text-4xl font-bold font-mono text-slate-100">
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold font-mono text-app">
                   {outside}
                 </div>
-                <div className="progress-bar w-full bg-slate-800 h-1.5 lg:h-2 rounded-full overflow-hidden mt-2">
+                <div className="progress-bar w-full bg-recessed h-1.5 lg:h-2 rounded-full overflow-hidden mt-2 border border-app">
                   <div
-                    className={`h-full rounded-full ${isNRI ? "bg-emerald-500" : "bg-red-500"}`}
+                    className={`h-full rounded-full ${isNRI ? "bg-emerald-600" : "bg-rose-500"}`}
                     style={{ width: `${pct}%` }}
                   ></div>
                 </div>
               </div>
               <div>
-                <div className="text-[10px] lg:text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">
+                <div className="text-[10px] lg:text-xs text-muted-app font-bold uppercase tracking-wider mb-1">
                   {isNRI ? "Surplus Days" : "Days Remaining"}
                 </div>
                 <div
-                  className={`text-2xl md:text-3xl lg:text-4xl font-bold font-mono ${isNRI ? "text-emerald-400" : "text-amber-400"}`}
+                  className={`text-2xl md:text-3xl lg:text-4xl font-bold font-mono ${isNRI ? "text-emerald-700" : "text-amber-700"}`}
                 >
                   {Math.abs(remaining)}
                 </div>
-                <div className="text-xs lg:text-sm text-slate-500 mt-2 font-mono">
+                <div className="text-xs lg:text-sm text-muted-app mt-2 font-mono">
                   Threshold: {threshold} days
                 </div>
               </div>
@@ -286,15 +287,15 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
         </div>
 
         {/* Sailing List for this FY */}
-        <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-4 sm:p-5 mb-6 shadow-md">
-          <h3 className="text-xs font-bold tracking-widest text-slate-400 uppercase flex items-center gap-2 mb-4">
-            <span className="w-1.5 h-3 bg-emerald-500 rounded-sm"></span>{" "}
+        <div className="card-surface border border-app rounded-2xl p-4 sm:p-5 mb-6 shadow-sm">
+          <h3 className="text-xs font-bold tracking-widest text-muted-app uppercase flex items-center gap-2 mb-4">
+            <span className="w-1.5 h-3 bg-emerald-600 rounded-sm"></span>{" "}
             Sailings in FY {selectedFY}
           </h3>
           <div className="table-responsive-container">
             <table className="w-full text-left border-collapse text-xs md:text-sm min-w-[500px]">
               <thead>
-                <tr className="border-b border-slate-800/60 text-slate-400 font-bold uppercase tracking-wider">
+                <tr className="border-b border-app text-muted-app font-bold uppercase tracking-wider">
                   <th className="py-3 px-3">Sign On</th>
                   <th className="py-3 px-3">Sign Off</th>
                   <th className="py-3 px-3">Port</th>
@@ -303,16 +304,16 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
                   <th className="py-3 px-3 text-right">Days</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/40 text-slate-300 font-mono">
+              <tbody className="divide-y divide-app text-app font-mono">
                 {d.sailings.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="text-center py-8 text-slate-500">
+                    <td colSpan={6} className="text-center py-8 text-muted-app">
                       No sailings mapped to this financial year.
                     </td>
                   </tr>
                 ) : (
                   d.sailings.map((s) => (
-                    <tr key={s.id} className="hover:bg-slate-800/10">
+                    <tr key={s.id} className="hover:bg-recessed transition-all">
                       <td className="py-3 px-3 whitespace-nowrap">
                         {formatDateStr(s.depDate)}
                       </td>
@@ -320,15 +321,15 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
                         {formatDateStr(s.arrDate)}
                       </td>
                       <td className="py-3 px-3 font-sans whitespace-nowrap">
-                        <span className="flex items-center gap-1 text-xs text-slate-300">
+                        <span className="flex items-center gap-1 text-xs text-app">
                           {s.portType === "indian" ? (
                             <>
-                              <Anchor className="w-3.5 h-3.5 text-slate-500" />
+                              <Anchor className="w-3.5 h-3.5 text-muted-app" />
                               <span>CDC</span>
                             </>
                           ) : (
                             <>
-                              <Globe className="w-3.5 h-3.5 text-slate-500" />
+                              <Globe className="w-3.5 h-3.5 text-muted-app" />
                               <span>Passport</span>
                             </>
                           )}
@@ -341,7 +342,7 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
                         {s.rank || "—"}
                       </td>
                       <td className="py-3 px-3 text-right whitespace-nowrap">
-                        <span className="inline-block bg-slate-800/80 px-2 py-0.5 rounded text-[11px] font-bold text-emerald-400">
+                        <span className="inline-block bg-recessed border border-app px-2 py-0.5 rounded text-[11px] font-bold text-emerald-700">
                           {s.daysInFY}d
                         </span>
                       </td>
@@ -350,13 +351,13 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
                 )}
               </tbody>
               <tfoot>
-                <tr className="font-bold border-t border-slate-800 text-slate-100">
+                <tr className="font-bold border-t border-app text-app">
                   <td colSpan={5} className="py-4 px-3 text-sm">
                     Total Days Outside India
                   </td>
                   <td className="py-4 px-3 text-right">
                     <span
-                      className={`inline-block border px-2.5 py-0.5 rounded-full text-xs font-bold font-mono ${isNRI ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" : "bg-amber-500/10 text-amber-400 border-amber-500/20"}`}
+                      className={`inline-block border px-2.5 py-0.5 rounded-full text-xs font-bold font-mono ${isNRI ? "bg-emerald-100 text-emerald-800 border-emerald-200" : "bg-amber-100 text-amber-900 border-amber-200"}`}
                     >
                       {outside}d
                     </span>
@@ -368,19 +369,19 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
         </div>
 
         {/* NRI Projection Calculator */}
-        <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-3xl p-6 mb-6 shadow-md bg-gradient-to-br from-slate-900/40 via-slate-900/20 to-red-950/10">
-          <h3 className="text-xs font-bold tracking-widest text-slate-400 uppercase flex items-center gap-2 mb-2">
-            <span className="w-1.5 h-3 bg-emerald-500 rounded-sm"></span> NRI
+        <div className="card-surface border border-app rounded-3xl p-6 mb-6 shadow-sm">
+          <h3 className="text-xs font-bold tracking-widest text-muted-app uppercase flex items-center gap-2 mb-2">
+            <span className="w-1.5 h-3 bg-emerald-600 rounded-sm"></span> NRI
             Projection Calculator
           </h3>
-          <p className="text-xs text-slate-500 mb-4 leading-relaxed">
+          <p className="text-xs text-muted-app mb-4 leading-relaxed">
             Planning your next contract? Estimate your projected status by
             adding hypothetical sailing days.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-semibold text-slate-400">
+              <label className="text-xs font-semibold text-app">
                 Additional Contract Days
               </label>
               <input
@@ -396,11 +397,11 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
                       : Math.max(0, parseInt(e.target.value) || 0);
                   setProjDays(val);
                 }}
-                className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm font-mono text-slate-200 outline-none focus:border-emerald-500"
+                className="bg-recessed border border-app rounded-xl px-4 py-2.5 text-sm font-mono text-app outline-none focus:border-emerald-600 shadow-sm"
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-semibold text-slate-400">
+              <label className="text-xs font-semibold text-app">
                 Sign On / Sign Off Port
               </label>
               <select
@@ -408,7 +409,7 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
                 onChange={(e) =>
                   setProjPort(e.target.value as "indian" | "foreign")
                 }
-                className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 cursor-pointer"
+                className="bg-recessed border border-app rounded-xl px-4 py-2.5 text-sm text-app outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
               >
                 <option value="indian">Indian Port (CDC)</option>
                 <option value="foreign">Foreign Port (Passport)</option>
@@ -417,17 +418,17 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
           </div>
 
           {projDays !== "" && (
-            <div className="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeUp">
+            <div className="bg-recessed border border-app rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeUp">
               <div>
-                <div className="text-[32px] font-bold font-mono text-red-500 leading-none">
+                <div className="text-[32px] font-bold font-mono text-emerald-700 leading-none">
                   {projectedTotal}
                 </div>
-                <div className="text-xs text-slate-500 mt-1 font-mono">
+                <div className="text-xs text-muted-app mt-1 font-mono">
                   Projected total days outside India
                 </div>
               </div>
               <span
-                className={`text-xs font-bold border rounded-full px-3 py-1 self-start sm:self-center ${projectedTotal >= threshold ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" : "bg-amber-500/10 text-amber-400 border-amber-500/20"}`}
+                className={`text-xs font-bold border rounded-full px-3 py-1 self-start sm:self-center ${projectedTotal >= threshold ? "bg-emerald-100 text-emerald-800 border-emerald-200" : "bg-amber-100 text-amber-900 border-amber-200"}`}
               >
                 {projectedTotal >= threshold
                   ? `✓ Projected NRI Achieved — +${projectedTotal - threshold}d surplus`
@@ -438,9 +439,9 @@ export default function NriStatus({ sailings, fyData }: NriStatusProps) {
         </div>
 
         {/* Disclaimer / Informational block */}
-        <details className="bg-slate-900/30 border border-slate-800/60 rounded-2xl p-4 text-xs text-slate-500 leading-relaxed cursor-pointer group">
-          <summary className="font-bold text-slate-400 outline-none select-none list-none flex items-center gap-1.5 hover:text-slate-300">
-            <span className="text-emerald-500 text-sm">⚠</span> Important Rules
+        <details className="card-surface border border-app rounded-2xl p-4 text-xs text-muted-app leading-relaxed cursor-pointer group">
+          <summary className="font-bold text-app outline-none select-none list-none flex items-center gap-1.5 hover:text-emerald-700">
+            <span className="text-emerald-600 text-sm">⚠</span> Important Rules
             &amp; Guidelines for Seafarers (Click to expand)
           </summary>
           <ol className="list-decimal list-inside space-y-2 mt-3 pl-1">

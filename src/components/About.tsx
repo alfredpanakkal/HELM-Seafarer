@@ -114,22 +114,22 @@ export default function About({
         {/* Header & Section Navigation Tabs */}
         <div className="page-header mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-1">
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-app mb-1">
               About &amp; Settings
             </h1>
-            <p className="text-sm text-slate-400 flex items-center gap-1.5 flex-wrap">
-              Built with <Anchor className="w-4 h-4 text-emerald-500 inline" />{" "}
+            <p className="text-sm text-muted-app flex items-center gap-1.5 flex-wrap">
+              Built with <Anchor className="w-4 h-4 text-emerald-600 inline" />{" "}
               for seafarers &bull; System Controls
             </p>
           </div>
 
-          <div className="flex bg-slate-900 border border-slate-800 rounded-xl p-1 self-start sm:self-auto overflow-x-auto no-scrollbar">
+          <div className="flex bg-recessed border border-app rounded-xl p-1 self-start sm:self-auto overflow-x-auto no-scrollbar">
             <button
               onClick={() => setActiveTab("info")}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === "info"
-                  ? "bg-emerald-500 text-white shadow-md"
-                  : "text-slate-400 hover:text-slate-200"
+                  ? "bg-emerald-700 text-white shadow-sm"
+                  : "text-muted-app hover:text-app"
               }`}
             >
               <Info className="w-3.5 h-3.5" />
@@ -139,8 +139,8 @@ export default function About({
               onClick={() => setActiveTab("documents")}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === "documents"
-                  ? "bg-emerald-500 text-white shadow-md"
-                  : "text-slate-400 hover:text-slate-200"
+                  ? "bg-emerald-700 text-white shadow-sm"
+                  : "text-muted-app hover:text-app"
               }`}
             >
               <CreditCard className="w-3.5 h-3.5" />
@@ -150,8 +150,8 @@ export default function About({
               onClick={() => setActiveTab("profiles")}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === "profiles"
-                  ? "bg-emerald-500 text-white shadow-md"
-                  : "text-slate-400 hover:text-slate-200"
+                  ? "bg-emerald-700 text-white shadow-sm"
+                  : "text-muted-app hover:text-app"
               }`}
             >
               <Users className="w-3.5 h-3.5" />
@@ -162,8 +162,8 @@ export default function About({
                 onClick={() => setActiveTab("admin")}
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                   activeTab === "admin"
-                    ? "bg-emerald-500 text-white shadow-md"
-                    : "text-slate-400 hover:text-slate-200"
+                    ? "bg-emerald-700 text-white shadow-sm"
+                    : "text-muted-app hover:text-app"
                 }`}
               >
                 <Terminal className="w-3.5 h-3.5" />
@@ -174,7 +174,7 @@ export default function About({
         </div>
 
         {adminNotification && (
-          <div className="mb-4 p-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-xl text-xs font-semibold flex items-center gap-2 animate-fadeUp">
+          <div className="mb-4 p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-xs font-semibold flex items-center gap-2 animate-fadeUp">
             <CheckCircle2 className="w-4 h-4 shrink-0" />
             <span>{adminNotification}</span>
           </div>
@@ -184,25 +184,25 @@ export default function About({
         {activeTab === "info" && (
           <div className="space-y-6">
             {/* Data & Cloud Sync */}
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg">
-              <h2 className="text-base font-bold text-slate-200 mb-4 flex items-center gap-2">
-                <span className="w-1.5 h-4 bg-emerald-500 rounded-sm"></span>{" "}
+            <div className="card-surface rounded-2xl p-5 shadow-sm">
+              <h2 className="text-base font-bold text-app mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-4 bg-emerald-600 rounded-sm"></span>{" "}
                 Data &amp; Sync
               </h2>
               <div className="flex flex-col gap-3">
                 <button
                   onClick={onOpenCloudModal}
-                  className="w-full flex items-center justify-between px-4 py-3 bg-slate-950 border border-slate-850 hover:border-emerald-500/50 rounded-xl transition-all cursor-pointer"
+                  className="w-full flex items-center justify-between px-4 py-3 bg-recessed border border-app hover:border-emerald-500 rounded-xl transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
                     <Cloud
-                      className={`w-5 h-5 ${cloudAccount ? "text-emerald-500" : "text-slate-400"}`}
+                      className={`w-5 h-5 ${cloudAccount ? "text-emerald-700" : "text-muted-app"}`}
                     />
                     <div className="text-left">
-                      <div className="text-sm font-bold text-slate-200">
+                      <div className="text-sm font-bold text-app">
                         Google Cloud Sync
                       </div>
-                      <div className="text-[11px] text-slate-500">
+                      <div className="text-[11px] text-muted-app">
                         {cloudAccount
                           ? `Connected as ${cloudAccount.email}`
                           : "Backup & sync across devices"}
@@ -210,7 +210,7 @@ export default function About({
                     </div>
                   </div>
                   <div
-                    className={`px-2 py-1 rounded-md text-[10px] font-bold ${cloudAccount ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" : "bg-slate-800 text-slate-400"}`}
+                    className={`px-2 py-1 rounded-md text-[10px] font-bold ${cloudAccount ? "bg-emerald-100 text-emerald-800 border border-emerald-200" : "bg-surface text-muted-app border border-app"}`}
                   >
                     {cloudAccount ? "Connected" : "Connect"}
                   </div>
@@ -218,14 +218,14 @@ export default function About({
 
                 <button
                   onClick={onExportBackup}
-                  className="w-full flex items-center gap-3 px-4 py-3 bg-slate-950 border border-slate-850 hover:border-slate-700 rounded-xl transition-all cursor-pointer"
+                  className="w-full flex items-center gap-3 px-4 py-3 bg-recessed border border-app hover:border-emerald-500 rounded-xl transition-all cursor-pointer"
                 >
-                  <Download className="w-5 h-5 text-slate-400" />
+                  <Download className="w-5 h-5 text-muted-app" />
                   <div className="text-left">
-                    <div className="text-sm font-bold text-slate-200">
+                    <div className="text-sm font-bold text-app">
                       Export Local JSON Backup
                     </div>
-                    <div className="text-[11px] text-slate-500">
+                    <div className="text-[11px] text-muted-app">
                       Download encrypted offline JSON file
                     </div>
                   </div>
@@ -234,19 +234,19 @@ export default function About({
             </div>
 
             {/* Appearance & Design System Settings */}
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
-              <h2 className="text-base font-bold text-slate-200 flex items-center gap-2">
-                <span className="w-1.5 h-4 bg-emerald-500 rounded-sm"></span>{" "}
+            <div className="card-surface rounded-2xl p-5 shadow-sm space-y-4">
+              <h2 className="text-base font-bold text-app flex items-center gap-2">
+                <span className="w-1.5 h-4 bg-emerald-600 rounded-sm"></span>{" "}
                 Design System &amp; Appearance
               </h2>
 
               {/* Theme Preset Choice */}
-              <div className="bg-slate-950 p-4 rounded-xl border border-slate-850 space-y-2">
+              <div className="bg-recessed p-4 rounded-xl border border-app space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-app">
                     Color Palette Preset
                   </span>
-                  <span className="text-xs font-semibold text-emerald-400 capitalize">
+                  <span className="text-xs font-semibold text-emerald-700 capitalize">
                     {themePreset.replace("-", " ")}
                   </span>
                 </div>
@@ -263,8 +263,8 @@ export default function About({
                       onClick={() => onUpdateThemePreset(t.id)}
                       className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
                         themePreset === t.id
-                          ? "bg-slate-850 border-emerald-500 text-slate-100 shadow-md"
-                          : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                          ? "bg-surface border-emerald-600 text-app shadow-sm"
+                          : "bg-surface border-app text-muted-app hover:text-app"
                       }`}
                     >
                       <span className={`w-3 h-3 rounded-full ${t.color} shrink-0`} />
@@ -275,12 +275,12 @@ export default function About({
               </div>
 
               {/* Typography Font Pairing Choice */}
-              <div className="bg-slate-950 p-4 rounded-xl border border-slate-850 space-y-2">
+              <div className="bg-recessed p-4 rounded-xl border border-app space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-app">
                     Typeface Pairing
                   </span>
-                  <span className="text-xs font-semibold text-emerald-400">
+                  <span className="text-xs font-semibold text-emerald-700">
                     {fontFamily === "font-jakarta"
                       ? "Plus Jakarta Sans"
                       : fontFamily === "font-inter"
@@ -305,8 +305,8 @@ export default function About({
                       onClick={() => onUpdateFontFamily(f.id)}
                       className={`px-3 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer truncate ${f.fontClass} ${
                         fontFamily === f.id
-                          ? "bg-slate-850 border-emerald-500 text-slate-100 shadow-md"
-                          : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                          ? "bg-surface border-emerald-600 text-app shadow-sm"
+                          : "bg-surface border-app text-muted-app hover:text-app"
                       }`}
                     >
                       {f.label}
@@ -316,26 +316,26 @@ export default function About({
               </div>
 
               {/* Text Scale */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-950 p-3 rounded-xl border border-slate-850 gap-3">
-                <span className="text-sm font-semibold text-slate-300">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-recessed p-3 rounded-xl border border-app gap-3">
+                <span className="text-sm font-semibold text-app">
                   Text Scale
                 </span>
-                <div className="flex items-center gap-1 bg-slate-900 p-1 rounded-lg border border-slate-800">
+                <div className="flex items-center gap-1 bg-surface p-1 rounded-lg border border-app">
                   <button
                     onClick={() => onUpdateFontScale(90)}
-                    className={`px-3 py-1.5 flex items-center justify-center rounded-md text-xs font-bold cursor-pointer transition-all border-none ${fontScale <= 90 ? "bg-emerald-500 text-white shadow-md" : "bg-transparent text-slate-400 hover:text-slate-200"}`}
+                    className={`px-3 py-1.5 flex items-center justify-center rounded-md text-xs font-bold cursor-pointer transition-all border-none ${fontScale <= 90 ? "bg-emerald-700 text-white shadow-sm" : "bg-transparent text-muted-app hover:text-app"}`}
                   >
                     Small
                   </button>
                   <button
                     onClick={() => onUpdateFontScale(100)}
-                    className={`px-3 py-1.5 flex items-center justify-center rounded-md text-xs font-bold cursor-pointer transition-all border-none ${fontScale > 90 && fontScale < 110 ? "bg-emerald-500 text-white shadow-md" : "bg-transparent text-slate-400 hover:text-slate-200"}`}
+                    className={`px-3 py-1.5 flex items-center justify-center rounded-md text-xs font-bold cursor-pointer transition-all border-none ${fontScale > 90 && fontScale < 110 ? "bg-emerald-700 text-white shadow-sm" : "bg-transparent text-muted-app hover:text-app"}`}
                   >
                     Normal
                   </button>
                   <button
                     onClick={() => onUpdateFontScale(110)}
-                    className={`px-3 py-1.5 flex items-center justify-center rounded-md text-xs font-bold cursor-pointer transition-all border-none ${fontScale >= 110 ? "bg-emerald-500 text-white shadow-md" : "bg-transparent text-slate-400 hover:text-slate-200"}`}
+                    className={`px-3 py-1.5 flex items-center justify-center rounded-md text-xs font-bold cursor-pointer transition-all border-none ${fontScale >= 110 ? "bg-emerald-700 text-white shadow-sm" : "bg-transparent text-muted-app hover:text-app"}`}
                   >
                     Large
                   </button>
@@ -344,35 +344,19 @@ export default function About({
             </div>
 
             {/* Architecture & Privacy */}
-            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-lg text-slate-400 text-xs">
-              <h3 className="text-xs font-bold tracking-widest text-slate-300 uppercase flex items-center gap-2 mb-3">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />{" "}
+            <div className="card-surface rounded-2xl p-5 shadow-sm text-xs">
+              <h3 className="text-xs font-bold tracking-widest text-app uppercase flex items-center gap-2 mb-3">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />{" "}
                 Architecture &amp; Privacy First
               </h3>
               <div className="flex flex-wrap gap-1.5 mt-2">
-                <span className="text-[10px] bg-slate-950 border border-slate-850 rounded px-2 py-0.5 text-slate-300">
-                  React 19
-                </span>
-                <span className="text-[10px] bg-slate-950 border border-slate-850 rounded px-2 py-0.5 text-slate-300">
-                  Vite 6
-                </span>
-                <span className="text-[10px] bg-slate-950 border border-slate-850 rounded px-2 py-0.5 text-slate-300">
-                  TypeScript
-                </span>
-                <span className="text-[10px] bg-slate-950 border border-slate-850 rounded px-2 py-0.5 text-slate-300">
-                  Tailwind CSS v4
-                </span>
-                <span className="text-[10px] bg-slate-950 border border-slate-850 rounded px-2 py-0.5 text-slate-300">
-                  Chart.js
-                </span>
-                <span className="text-[10px] bg-slate-950 border border-slate-850 rounded px-2 py-0.5 text-slate-300">
-                  localStorage API
-                </span>
-                <span className="text-[10px] bg-slate-950 border border-slate-850 rounded px-2 py-0.5 text-slate-300">
-                  PWA Offline Capable
-                </span>
+                {["React 19", "Vite 6", "TypeScript", "Tailwind CSS v4", "Chart.js", "localStorage API", "PWA Offline Capable"].map((tech) => (
+                  <span key={tech} className="text-[10px] bg-recessed border border-app rounded px-2 py-0.5 text-app font-medium">
+                    {tech}
+                  </span>
+                ))}
               </div>
-              <p className="mt-3 leading-relaxed text-slate-400 text-xs">
+              <p className="mt-3 leading-relaxed text-muted-app text-xs">
                 This app operates 100% on standard client-side state. Your
                 voyage data and calculations remain strictly stored in your
                 browser. Backups can be exported anytime in standard JSON
@@ -381,12 +365,12 @@ export default function About({
             </div>
 
             {/* Feedback & Contact */}
-            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div className="card-surface rounded-2xl p-5 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
-                <h4 className="text-sm font-bold text-slate-200 mb-0.5">
+                <h4 className="text-sm font-bold text-app mb-0.5">
                   Feedback &amp; Calculation Support
                 </h4>
-                <p className="text-xs text-slate-400 leading-normal max-w-sm">
+                <p className="text-xs text-muted-app leading-normal max-w-sm">
                   Encountered a calculation mismatch or want to suggest a
                   feature? Drop an email.
                 </p>
@@ -395,13 +379,13 @@ export default function About({
               <div className="flex gap-2 flex-shrink-0 w-full sm:w-auto">
                 <button
                   onClick={onExportBackup}
-                  className="flex-1 px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 cursor-pointer flex items-center justify-center gap-1.5 transition-all"
+                  className="flex-1 px-4 py-2 rounded-xl text-xs font-semibold bg-recessed border border-app text-app hover:bg-surface cursor-pointer flex items-center justify-center gap-1.5 transition-all"
                 >
-                  <Download className="w-3.5 h-3.5" /> Backup Data
+                  <Download className="w-3.5 h-3.5 text-muted-app" /> Backup Data
                 </button>
                 <a
                   href="mailto:alphaprime7@protonmail.com"
-                  className="flex-1 px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 text-emerald-400 text-center select-none flex items-center justify-center gap-1.5 transition-all"
+                  className="flex-1 px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-700 text-white hover:bg-emerald-800 text-center select-none flex items-center justify-center gap-1.5 transition-all shadow-sm"
                 >
                   <Mail className="w-3.5 h-3.5" /> Send Feedback
                 </a>
@@ -424,15 +408,15 @@ export default function About({
         {/* TAB 2: PROFILES */}
         {activeTab === "profiles" && (
           <div className="space-y-6">
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg">
+            <div className="card-surface rounded-2xl p-5 shadow-sm">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-base font-bold text-slate-200 flex items-center gap-2">
-                  <span className="w-1.5 h-4 bg-emerald-500 rounded-sm"></span>
+                <h2 className="text-base font-bold text-app flex items-center gap-2">
+                  <span className="w-1.5 h-4 bg-emerald-600 rounded-sm"></span>
                   Manage Profiles
                 </h2>
                 <button
                   onClick={onAddProfile}
-                  className="flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold py-1.5 px-3 rounded-lg transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold py-1.5 px-3 rounded-lg transition-colors cursor-pointer shadow-sm"
                 >
                   <Plus className="w-4 h-4" />
                   Add Profile
@@ -445,30 +429,30 @@ export default function About({
                     key={p.id}
                     className={`flex items-center justify-between p-4 rounded-xl border ${
                       p.id === activeProfileId
-                        ? "bg-emerald-500/10 border-emerald-500/30"
-                        : "bg-slate-950 border-slate-800"
+                        ? "bg-emerald-50 border-emerald-300"
+                        : "bg-recessed border-app"
                     }`}
                   >
                     <div className="flex items-center gap-4">
                       <div
                         className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
                           p.id === activeProfileId
-                            ? "bg-emerald-500 text-white"
-                            : "bg-slate-800 text-slate-400"
+                            ? "bg-emerald-700 text-white shadow-sm"
+                            : "bg-surface text-muted-app border border-app"
                         }`}
                       >
                         <User className="w-5 h-5" />
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-slate-200 flex items-center gap-2">
+                        <div className="text-sm font-bold text-app flex items-center gap-2">
                           {p.name}
                           {p.id === activeProfileId && (
-                            <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded uppercase tracking-wider">
+                            <span className="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold uppercase tracking-wider">
                               Active
                             </span>
                           )}
                         </div>
-                        <div className="text-xs text-slate-500 mt-0.5">
+                        <div className="text-xs text-muted-app mt-0.5">
                           {p.rank} • {p.vessel}
                         </div>
                       </div>
@@ -478,7 +462,7 @@ export default function About({
                       {p.id !== activeProfileId && onSwitchProfile && (
                         <button
                           onClick={() => onSwitchProfile(p.id)}
-                          className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold rounded-lg transition-colors cursor-pointer"
+                          className="px-3 py-1.5 bg-surface border border-app hover:bg-recessed text-app text-xs font-bold rounded-lg transition-colors cursor-pointer"
                         >
                           Switch
                         </button>
@@ -486,7 +470,7 @@ export default function About({
                       {onEditProfile && (
                         <button
                           onClick={() => onEditProfile(p.id)}
-                          className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-emerald-400 rounded-lg transition-colors cursor-pointer"
+                          className="p-2 bg-surface border border-app hover:bg-recessed text-app hover:text-emerald-700 rounded-lg transition-colors cursor-pointer"
                           title="Edit Profile"
                         >
                           <Edit2 className="w-4 h-4" />

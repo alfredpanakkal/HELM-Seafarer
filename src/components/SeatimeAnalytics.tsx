@@ -64,19 +64,19 @@ export default function SeatimeAnalytics({
       <div id="page-sea" className="page active animate-fadeUp">
         <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 pb-24 md:pb-8">
           <div className="page-header mb-6">
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-2">
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-app mb-2">
               Seatime Analytics
             </h1>
-            <p className="text-sm text-slate-400 font-sans">
+            <p className="text-sm text-muted-app font-sans">
               Comprehensive analysis of your time at sea.
             </p>
           </div>
-          <div className="bg-slate-900/30 border border-slate-800/40 rounded-2xl p-12 text-center text-slate-500 shadow-inner">
+          <div className="card-surface border border-app rounded-2xl p-12 text-center text-muted-app shadow-sm">
             <div className="text-4xl mb-3 opacity-40">⏱</div>
-            <h3 className="text-base font-semibold text-slate-400">
+            <h3 className="text-base font-semibold text-app">
               No sailing data available
             </h3>
-            <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto leading-relaxed">
+            <p className="text-xs text-muted-app mt-1 max-w-sm mx-auto leading-relaxed">
               Log your voyages in the Sailing Log first to review interactive
               breakdowns, contract trends, and rank divisions.
             </p>
@@ -207,7 +207,7 @@ export default function SeatimeAnalytics({
               {
                 label: "Days on board",
                 data,
-                backgroundColor: "#FF4D4F",
+                backgroundColor: "#059669",
                 borderRadius: 6,
                 borderSkipped: false,
                 barThickness: 16,
@@ -222,19 +222,18 @@ export default function SeatimeAnalytics({
             scales: {
               x: {
                 grid: {
-                  color:
-                    "rgba(15, 23, 42, 0.08) dark:rgba(42, dark:54, dark:85, dark:0.3)",
+                  color: "rgba(100, 116, 139, 0.12)",
                 },
                 ticks: {
-                  color: theme === "dark" ? "#5A6578" : "#64748B",
-                  font: { family: "Poppins", size: 10 },
+                  color: "#64748B",
+                  font: { family: "Plus Jakarta Sans", size: 10 },
                 },
               },
               y: {
                 grid: { display: false },
                 ticks: {
-                  color: theme === "dark" ? "#8B95A5" : "#475569",
-                  font: { family: "Poppins", size: 11 },
+                  color: "#334155",
+                  font: { family: "Plus Jakarta Sans", size: 11 },
                 },
               },
             },
@@ -260,24 +259,24 @@ export default function SeatimeAnalytics({
               {
                 label: "Days in FY",
                 data: dataDays,
-                backgroundColor: "#FF4D4F",
+                backgroundColor: "#059669",
                 borderRadius: 8,
                 borderSkipped: false,
-                barThickness: 32,
+                barThickness: 28,
                 order: 1,
               },
               {
                 label: "Cumulative Career Days",
                 data: dataCumul,
                 type: "line",
-                borderColor: "#FAAD14",
-                backgroundColor: "rgba(250, 173, 20, 0.1)",
+                borderColor: "#0284C7",
+                backgroundColor: "rgba(2, 132, 199, 0.08)",
                 borderWidth: 2.5,
                 borderDash: [6, 4],
                 tension: 0.4,
                 fill: false,
                 pointRadius: 4.5,
-                pointBackgroundColor: "#FAAD14",
+                pointBackgroundColor: "#0284C7",
                 pointBorderColor: "#fff",
                 pointBorderWidth: 2,
                 order: 0,
@@ -345,36 +344,36 @@ export default function SeatimeAnalytics({
 
         {/* Bento Stat Counters */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-          <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-6 text-center shadow-lg flex flex-col items-center justify-center">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-2">
-              <Ship className="w-5 h-5 text-emerald-500" />
+          <div className="card-surface border border-app rounded-2xl p-6 text-center shadow-sm flex flex-col items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center mb-2">
+              <Ship className="w-5 h-5 text-emerald-700" />
             </div>
-            <div className="text-3xl md:text-4xl font-bold text-emerald-500 font-mono tabular-nums leading-none">
+            <div className="text-3xl md:text-4xl font-bold text-emerald-700 font-mono tabular-nums leading-none">
               {grandTotalDays.toLocaleString()}
             </div>
-            <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider mt-2.5">
+            <div className="text-xs text-muted-app font-semibold uppercase tracking-wider mt-2.5">
               Total Sea Days
             </div>
           </div>
-          <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-6 text-center shadow-lg flex flex-col items-center justify-center">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-2">
-              <Calendar className="w-5 h-5 text-emerald-500" />
+          <div className="card-surface border border-app rounded-2xl p-6 text-center shadow-sm flex flex-col items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center mb-2">
+              <Calendar className="w-5 h-5 text-emerald-700" />
             </div>
-            <div className="text-3xl md:text-4xl font-bold text-emerald-500 font-mono tabular-nums leading-none">
+            <div className="text-3xl md:text-4xl font-bold text-emerald-700 font-mono tabular-nums leading-none">
               {totalMonths}m
             </div>
-            <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider mt-2.5">
+            <div className="text-xs text-muted-app font-semibold uppercase tracking-wider mt-2.5">
               {remDays > 0 ? `+ ${remDays} days` : "Net Duration"}
             </div>
           </div>
-          <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-6 text-center shadow-lg flex flex-col items-center justify-center">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-2">
-              <Anchor className="w-5 h-5 text-emerald-400" />
+          <div className="card-surface border border-app rounded-2xl p-6 text-center shadow-sm flex flex-col items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center mb-2">
+              <Anchor className="w-5 h-5 text-emerald-700" />
             </div>
-            <div className="text-3xl md:text-4xl font-bold text-emerald-400 font-mono leading-none">
+            <div className="text-3xl md:text-4xl font-bold text-emerald-700 font-mono leading-none">
               {valid.length}
             </div>
-            <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider mt-2.5">
+            <div className="text-xs text-muted-app font-semibold uppercase tracking-wider mt-2.5">
               Voyages Logged
             </div>
           </div>
@@ -383,9 +382,9 @@ export default function SeatimeAnalytics({
         {/* Vessel & Rank Chart Breakdown (Bento Panel Group) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           {/* Vessel Doughnut */}
-          <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-6 shadow-lg flex flex-col justify-between">
-            <h3 className="text-xs font-bold tracking-widest text-slate-400 uppercase flex items-center gap-2 mb-4">
-              <span className="w-1.5 h-3 bg-emerald-500 rounded-sm"></span>{" "}
+          <div className="card-surface border border-app rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+            <h3 className="text-xs font-bold tracking-widest text-muted-app uppercase flex items-center gap-2 mb-4">
+              <span className="w-1.5 h-3 bg-emerald-600 rounded-sm"></span>{" "}
               Vessel Division
             </h3>
             <div className="relative w-full h-[240px] flex-1">
@@ -394,9 +393,9 @@ export default function SeatimeAnalytics({
           </div>
 
           {/* Rank Bar */}
-          <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-6 shadow-lg flex flex-col justify-between">
-            <h3 className="text-xs font-bold tracking-widest text-slate-400 uppercase flex items-center gap-2 mb-4">
-              <span className="w-1.5 h-3 bg-emerald-500 rounded-sm"></span> Rank
+          <div className="card-surface border border-app rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+            <h3 className="text-xs font-bold tracking-widest text-muted-app uppercase flex items-center gap-2 mb-4">
+              <span className="w-1.5 h-3 bg-emerald-600 rounded-sm"></span> Rank
               Distribution
             </h3>
             <div className="relative w-full h-[240px] flex-1">
@@ -406,9 +405,9 @@ export default function SeatimeAnalytics({
         </div>
 
         {/* Contract Trend Chart */}
-        <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-6 shadow-lg mb-6 flex flex-col justify-between">
-          <h3 className="text-xs font-bold tracking-widest text-slate-400 uppercase flex items-center gap-2 mb-4">
-            <span className="w-1.5 h-3 bg-emerald-500 rounded-sm"></span> Career
+        <div className="card-surface border border-app rounded-2xl p-6 shadow-sm mb-6 flex flex-col justify-between">
+          <h3 className="text-xs font-bold tracking-widest text-muted-app uppercase flex items-center gap-2 mb-4">
+            <span className="w-1.5 h-3 bg-emerald-600 rounded-sm"></span> Career
             Seatime Trend
           </h3>
           <div className="relative w-full h-[260px] md:h-[280px]">
@@ -417,22 +416,22 @@ export default function SeatimeAnalytics({
         </div>
 
         {/* Vessel Table Overview */}
-        <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-5 mb-6 shadow-md">
-          <h3 className="text-xs font-bold tracking-widest text-slate-400 uppercase flex items-center gap-2 mb-4">
-            <span className="w-1.5 h-3 bg-emerald-500 rounded-sm"></span> Vessel
+        <div className="card-surface border border-app rounded-2xl p-5 mb-6 shadow-sm">
+          <h3 className="text-xs font-bold tracking-widest text-muted-app uppercase flex items-center gap-2 mb-4">
+            <span className="w-1.5 h-3 bg-emerald-600 rounded-sm"></span> Vessel
             Breakdown
           </h3>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs md:text-sm">
               <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
+                <tr className="border-b border-app text-muted-app font-bold uppercase tracking-wider">
                   <th className="py-3 px-3">Vessel</th>
                   <th className="py-3 px-3">Primary Rank</th>
                   <th className="py-3 px-3">Entries</th>
                   <th className="py-3 px-3 text-right">Seatime</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/40 text-slate-300 font-mono">
+              <tbody className="divide-y divide-app text-app font-mono">
                 {Object.entries(vesselMap)
                   .sort((a, b) => b[1].days - a[1].days)
                   .map(([vName, vData]) => {
@@ -441,17 +440,17 @@ export default function SeatimeAnalytics({
                         (x, y) => y[1] - x[1],
                       )[0]?.[0] || "—";
                     return (
-                      <tr key={vName} className="hover:bg-slate-800/10">
-                        <td className="py-3 px-3 font-semibold text-slate-200 font-sans">
+                      <tr key={vName} className="hover:bg-recessed transition-colors">
+                        <td className="py-3 px-3 font-semibold text-app font-sans">
                           {vName}
                         </td>
                         <td className="py-3 px-3 font-sans">{topRank}</td>
                         <td className="py-3 px-3">{vData.count}</td>
                         <td className="py-3 px-3 text-right whitespace-nowrap">
-                          <span className="inline-block bg-slate-800 border border-slate-700/60 px-2 py-0.5 rounded text-[11px] font-bold text-red-400 mr-2">
+                          <span className="inline-block bg-recessed border border-app px-2 py-0.5 rounded text-[11px] font-bold text-emerald-700 mr-2">
                             {vData.days}d
                           </span>
-                          <span className="text-xs font-sans text-slate-500">
+                          <span className="text-xs font-sans text-muted-app">
                             ({daysToFull(vData.days)})
                           </span>
                         </td>
@@ -464,20 +463,20 @@ export default function SeatimeAnalytics({
         </div>
 
         {/* Currency setting Block */}
-        <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-6 shadow-lg">
+        <div className="card-surface border border-app rounded-2xl p-6 shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h4 className="text-sm font-bold text-slate-200 mb-1">
+              <h4 className="text-sm font-bold text-app mb-1">
                 Global Currency Rate
               </h4>
-              <p className="text-xs text-slate-500 leading-relaxed max-w-md">
+              <p className="text-xs text-muted-app leading-relaxed max-w-md">
                 Used across the tax and salary screens to estimate total
                 converted INR. Set this to your current bank exchange rate.
               </p>
             </div>
 
             <div className="flex items-center gap-2 flex-shrink-0 w-full sm:w-auto max-w-[200px]">
-              <span className="text-xs font-semibold text-slate-400 whitespace-nowrap">
+              <span className="text-xs font-semibold text-muted-app whitespace-nowrap">
                 1 USD =
               </span>
               <input
@@ -491,9 +490,9 @@ export default function SeatimeAnalytics({
                     Math.max(1, parseFloat(e.target.value) || 1),
                   )
                 }
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm font-bold font-mono text-slate-200 outline-none focus:border-emerald-500"
+                className="w-full bg-recessed border border-app rounded-xl px-3 py-2 text-sm font-bold font-mono text-app outline-none focus:border-emerald-600 shadow-sm"
               />
-              <span className="text-xs font-semibold text-slate-400 font-mono">
+              <span className="text-xs font-semibold text-muted-app font-mono">
                 INR
               </span>
             </div>
