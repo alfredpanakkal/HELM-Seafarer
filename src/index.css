@@ -1,24 +1,82 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
-:root {
-  color-scheme: light dark;
-  --app-bg: var(--color-slate-100);
-  --app-text: var(--color-slate-900);
-  --overlay-bg: rgba(15, 23, 42, 0.45);
+/* Theme Preset Tokens */
+:root, [data-theme="slate-green"] {
+  --app-bg: #F7F9F8;
+  --app-surface: #FFFFFF;
+  --app-recessed: #F3F6F4;
+  --app-border: #E7ECE9;
+  --app-text: #172033;
+  --app-muted: #667085;
+  --app-primary: #238B45;
+  --app-primary-hover: #1E783B;
+  --app-light-accent: #EAF7EE;
+  --overlay-bg: rgba(15, 20, 30, 0.45);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --app-bg: var(--color-slate-950);
-    --app-text: var(--color-slate-50);
-    --overlay-bg: rgba(2, 6, 23, 0.75);
-  }
+[data-theme="emerald"] {
+  --app-bg: #F2F9F5;
+  --app-surface: #FFFFFF;
+  --app-recessed: #EAF5EF;
+  --app-border: #D8ECE0;
+  --app-text: #0F291E;
+  --app-muted: #52796F;
+  --app-primary: #059669;
+  --app-primary-hover: #047857;
+  --app-light-accent: #D1FAE5;
+  --overlay-bg: rgba(10, 30, 20, 0.45);
 }
+
+[data-theme="indigo"] {
+  --app-bg: #F8F9FC;
+  --app-surface: #FFFFFF;
+  --app-recessed: #F0F2F9;
+  --app-border: #E0E4F0;
+  --app-text: #1E1B4B;
+  --app-muted: #6366F1;
+  --app-primary: #4F46E5;
+  --app-primary-hover: #4338CA;
+  --app-light-accent: #EEF2FF;
+  --overlay-bg: rgba(20, 20, 50, 0.45);
+}
+
+[data-theme="warm-sand"] {
+  --app-bg: #FAF8F5;
+  --app-surface: #FFFFFF;
+  --app-recessed: #F4EFEA;
+  --app-border: #E8E0D5;
+  --app-text: #271C19;
+  --app-muted: #786C68;
+  --app-primary: #15803D;
+  --app-primary-hover: #166534;
+  --app-light-accent: #F0FDF4;
+  --overlay-bg: rgba(30, 25, 20, 0.45);
+}
+
+[data-theme="dark-night"] {
+  --app-bg: #0F172A;
+  --app-surface: #1E293B;
+  --app-recessed: #0A0F1D;
+  --app-border: #334155;
+  --app-text: #F8FAFC;
+  --app-muted: #94A3B8;
+  --app-primary: #22C55E;
+  --app-primary-hover: #16A34A;
+  --app-light-accent: #14532D;
+  --overlay-bg: rgba(2, 6, 23, 0.75);
+}
+
+/* Typography Font Pairings */
+.font-jakarta { font-family: "Plus Jakarta Sans", var(--font-sans); }
+.font-inter { font-family: "Inter", system-ui, sans-serif; }
+.font-system { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+.font-playfair { font-family: "Playfair Display", Georgia, serif; }
+.font-mono-jb { font-family: "JetBrains Mono", monospace; }
 
 html, body, #root {
   background-color: var(--app-bg);
@@ -36,6 +94,45 @@ html, body, #root {
   touch-action: manipulation;
 }
 
+/* Custom UI Utility Components adhering to design-system.md */
+.app-card {
+  background-color: var(--app-surface);
+  border: 1px solid var(--app-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border-radius: 20px;
+}
+
+.app-recessed {
+  background-color: var(--app-recessed);
+  border: 1px solid var(--app-border);
+  border-radius: 16px;
+}
+
+.btn-primary-cta {
+  background-color: var(--app-primary);
+  color: #ffffff;
+  border-radius: 16px;
+  min-height: 44px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1.25rem;
+  transition: all 150ms ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary-cta:hover {
+  background-color: var(--app-primary-hover);
+}
+
+.btn-primary-cta:active {
+  transform: scale(0.98);
+}
+
 .pb-safe { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
 .pt-safe { padding-top: max(0.5rem, env(safe-area-inset-top)); }
 .table-responsive-container { width: 100%; overflow-x: auto; }
@@ -44,7 +141,8 @@ html, body, #root {
 .modal-overlay { background-color: var(--overlay-bg); }
 
 * {
-  transition-property: color, background-color, border-color;
+  transition-property: color, background-color, border-color, box-shadow;
   transition-timing-function: ease;
-  transition-duration: 200ms;
+  transition-duration: 150ms;
 }
+

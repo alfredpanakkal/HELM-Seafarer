@@ -120,6 +120,8 @@ const ViewLoader = () => (
 const STORAGE_KEY = "seafarer_calc_data_v2";
 const FONT_SCALE_KEY = "seafarer_font_scale";
 const EXCH_RATE_KEY = "seafarer_usd_inr_rate";
+const THEME_PRESET_KEY = "seafarer_theme_preset";
+const FONT_FAMILY_KEY = "seafarer_font_family";
 
 export default function App() {
   // Navigation State
@@ -136,6 +138,16 @@ export default function App() {
     const saved = localStorage.getItem(EXCH_RATE_KEY);
     return saved ? parseFloat(saved) : 84;
   });
+  const [themePreset, setThemePreset] = useState<string>(() => {
+    return localStorage.getItem(THEME_PRESET_KEY) || "slate-green";
+  });
+  const [fontFamily, setFontFamily] = useState<string>(() => {
+    return localStorage.getItem(FONT_FAMILY_KEY) || "font-jakarta";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", themePreset);
+  }, [themePreset]);
 
   // Seafarer profiles & sailings state
   const [profiles, setProfiles] = useState<Profile[]>([
@@ -220,6 +232,18 @@ export default function App() {
   const handleSetFontScale = (scale: number) => {
     setFontScale(scale);
     localStorage.setItem(FONT_SCALE_KEY, scale.toString());
+  };
+
+  const handleUpdateThemePreset = (theme: string) => {
+    setThemePreset(theme);
+    localStorage.setItem(THEME_PRESET_KEY, theme);
+    showToast(`Theme updated: ${theme.replace("-", " ")}`);
+  };
+
+  const handleUpdateFontFamily = (font: string) => {
+    setFontFamily(font);
+    localStorage.setItem(FONT_FAMILY_KEY, font);
+    showToast("Typography updated");
   };
 
   const handleConnectGoogle = (email: string, name: string) => {
@@ -665,9 +689,7 @@ export default function App() {
 
   return (
     <div
-      className={`flex min-h-screen font-sans select-none antialiased transition-colors ${
-        "bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100"
-      }`}
+      className={`flex min-h-screen ${fontFamily} select-none antialiased transition-colors bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100`}
     >
       {/* Toast notifications */}
       <div
@@ -908,6 +930,10 @@ export default function App() {
                 <About
                   fontScale={fontScale}
                   onUpdateFontScale={handleSetFontScale}
+                  themePreset={themePreset}
+                  onUpdateThemePreset={handleUpdateThemePreset}
+                  fontFamily={fontFamily}
+                  onUpdateFontFamily={handleUpdateFontFamily}
                   onExportBackup={handleExportJSON}
                   onOpenCloudModal={() => setIsCloudModalOpen(true)}
                   cloudAccount={cloudAccount}
