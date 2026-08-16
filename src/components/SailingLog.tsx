@@ -22,7 +22,8 @@ import {
   Edit2,
   Search,
   Filter,
-  FileText
+  FileText,
+  MoreHorizontal
 } from "lucide-react";
 import SeaTimeTranscriptModal from "./SeaTimeTranscriptModal";
 
@@ -96,7 +97,7 @@ export default function SailingLog({
 
   return (
     <div id="page-log" className="page active animate-fadeUp">
-      <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 pb-24 md:pb-8">
+      <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 pb-4 md:pb-6">
         <div className="page-header mb-6 lg:mb-8">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-app mb-2 lg:mb-3">
             Sailing Log
@@ -113,10 +114,10 @@ export default function SailingLog({
           id="log-stats"
         >
           <div className="card-surface rounded-xl p-4 flex flex-col items-start gap-1 shadow-sm">
-            <div className="w-9 h-9 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center">
-              <Ship className="w-5 h-5 text-emerald-700" />
+            <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 flex items-center justify-center">
+              <Ship className="w-4 h-4 text-emerald-600" />
             </div>
-            <div className="text-xl md:text-2xl font-bold text-app font-mono tabular-nums mt-1">
+            <div className="text-xl md:text-2xl font-extrabold text-app font-mono tabular-nums mt-1">
               {totalVoyages}
             </div>
             <div className="text-[11px] text-muted-app font-semibold uppercase tracking-wider">
@@ -124,10 +125,10 @@ export default function SailingLog({
             </div>
           </div>
           <div className="card-surface rounded-xl p-4 flex flex-col items-start gap-1 shadow-sm">
-            <div className="w-9 h-9 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center">
-              <Anchor className="w-5 h-5 text-emerald-700" />
+            <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 flex items-center justify-center">
+              <Anchor className="w-4 h-4 text-emerald-600" />
             </div>
-            <div className="text-base font-bold text-app truncate max-w-full mt-1">
+            <div className="text-base font-extrabold text-app truncate max-w-full mt-1">
               {latestVessel}
             </div>
             <div className="text-[11px] text-muted-app font-semibold uppercase tracking-wider">
@@ -135,10 +136,10 @@ export default function SailingLog({
             </div>
           </div>
           <div className="card-surface rounded-xl p-4 flex flex-col items-start gap-1 shadow-sm">
-            <div className="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center">
-              <Calendar className="w-5 h-5 text-amber-700" />
+            <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 flex items-center justify-center">
+              <Calendar className="w-4 h-4 text-emerald-600" />
             </div>
-            <div className="text-xl md:text-2xl font-bold text-app font-mono tabular-nums mt-1">
+            <div className="text-xl md:text-2xl font-extrabold text-app font-mono tabular-nums mt-1">
               {currentFYDays}
             </div>
             <div className="text-[11px] text-muted-app font-semibold uppercase tracking-wider">
@@ -146,10 +147,10 @@ export default function SailingLog({
             </div>
           </div>
           <div className="card-surface rounded-xl p-4 flex flex-col items-start gap-1 shadow-sm">
-            <div className="w-9 h-9 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center">
-              <Award className="w-5 h-5 text-emerald-700" />
+            <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 flex items-center justify-center">
+              <Award className="w-4 h-4 text-emerald-600" />
             </div>
-            <div className="text-xl md:text-2xl font-bold text-app font-mono tabular-nums mt-1">
+            <div className="text-xl md:text-2xl font-extrabold text-app font-mono tabular-nums mt-1">
               {longestDays > 0 ? `${longestDays}d` : "0"}
             </div>
             <div className="text-[11px] text-muted-app font-semibold uppercase tracking-wider">
@@ -159,9 +160,9 @@ export default function SailingLog({
         </div>
 
         {/* Voyage Entries Controls */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 bg-recessed p-3 rounded-2xl border border-app">
-          <div className="flex flex-wrap items-center gap-3 flex-1">
-            <div className="relative flex-1 min-w-[200px]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 bg-recessed p-3 rounded-2xl border border-app">
+          <div className="flex flex-wrap items-center gap-2.5 flex-1">
+            <div className="relative flex-1 min-w-[180px]">
               <Search className="w-3.5 h-3.5 text-muted-app absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
@@ -183,21 +184,22 @@ export default function SailingLog({
             </select>
           </div>
 
-          <div className="flex flex-wrap gap-2 items-center shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={() => setIsTranscriptOpen(true)}
-              className="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-700 hover:bg-emerald-800 text-white cursor-pointer flex items-center gap-1.5 border-none shadow-sm"
+              className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-700 hover:bg-emerald-800 text-white cursor-pointer flex items-center gap-1.5 border-none shadow-sm"
             >
               <FileText className="w-3.5 h-3.5" /> Sea Time Transcript
             </button>
 
-            {/* Export Dropdown */}
+            {/* Overflow Dropdown Menu */}
             <div className="relative">
               <button
                 onClick={() => setIsExportOpen(!isExportOpen)}
-                className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-app text-app hover:bg-recessed cursor-pointer select-none flex items-center gap-1.5 shadow-sm"
+                className="p-1.5 px-2.5 rounded-xl text-xs font-semibold bg-surface border border-app text-app hover:bg-recessed cursor-pointer select-none flex items-center gap-1 shadow-sm"
+                title="More actions"
               >
-                <Download className="w-3.5 h-3.5" /> Export ▾
+                <MoreHorizontal className="w-4 h-4 text-app" />
               </button>
               {isExportOpen && (
                 <>
@@ -205,54 +207,72 @@ export default function SailingLog({
                     className="fixed inset-0 z-10"
                     onClick={() => setIsExportOpen(false)}
                   ></div>
-                  <div className="absolute right-0 mt-1 w-48 bg-surface border border-app rounded-xl shadow-lg overflow-hidden z-20">
-                    <button
-                      onClick={() => {
-                        onExportJSON();
-                        setIsExportOpen(false);
-                      }}
-                      className="w-full px-4 py-2.5 text-left text-xs font-medium text-app hover:bg-recessed border-none cursor-pointer flex items-center gap-2"
-                    >
-                      <FileJson className="w-3.5 h-3.5 text-muted-app" /> JSON
-                      Backup
-                    </button>
-                    <button
-                      onClick={() => {
-                        onExportCSV();
-                        setIsExportOpen(false);
-                      }}
-                      className="w-full px-4 py-2.5 text-left text-xs font-medium text-app hover:bg-recessed border-none cursor-pointer flex items-center gap-2"
-                    >
-                      <FileSpreadsheet className="w-3.5 h-3.5 text-muted-app" />{" "}
-                      CSV Spreadsheet
-                    </button>
-                    <button
-                      onClick={() => {
-                        onExportPDF();
-                        setIsExportOpen(false);
-                      }}
-                      className="w-full px-4 py-2.5 text-left text-xs font-medium text-app hover:bg-recessed border-none cursor-pointer flex items-center gap-2"
-                    >
-                      <Printer className="w-3.5 h-3.5 text-muted-app" /> Print /
-                      PDF
-                    </button>
+                  <div className="absolute right-0 mt-1 w-52 bg-surface border border-app rounded-xl shadow-xl overflow-hidden z-20 divide-y divide-app">
+                    <div className="py-1">
+                      <div className="px-3 py-1 text-[10px] font-bold text-muted-app uppercase tracking-wider">
+                        Export Options
+                      </div>
+                      <button
+                        onClick={() => {
+                          onExportJSON();
+                          setIsExportOpen(false);
+                        }}
+                        className="w-full px-3 py-2 text-left text-xs font-medium text-app hover:bg-recessed border-none cursor-pointer flex items-center gap-2"
+                      >
+                        <FileJson className="w-3.5 h-3.5 text-emerald-600" />
+                        Export JSON Backup
+                      </button>
+                      <button
+                        onClick={() => {
+                          onExportCSV();
+                          setIsExportOpen(false);
+                        }}
+                        className="w-full px-3 py-2 text-left text-xs font-medium text-app hover:bg-recessed border-none cursor-pointer flex items-center gap-2"
+                      >
+                        <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-600" />
+                        Export CSV Spreadsheet
+                      </button>
+                      <button
+                        onClick={() => {
+                          onExportPDF();
+                          setIsExportOpen(false);
+                        }}
+                        className="w-full px-3 py-2 text-left text-xs font-medium text-app hover:bg-recessed border-none cursor-pointer flex items-center gap-2"
+                      >
+                        <Printer className="w-3.5 h-3.5 text-emerald-600" />
+                        Print / Save PDF
+                      </button>
+                    </div>
+
+                    <div className="py-1">
+                      <div className="px-3 py-1 text-[10px] font-bold text-muted-app uppercase tracking-wider">
+                        Data Management
+                      </div>
+                      <button
+                        onClick={() => {
+                          onImportPrompt();
+                          setIsExportOpen(false);
+                        }}
+                        className="w-full px-3 py-2 text-left text-xs font-medium text-app hover:bg-recessed border-none cursor-pointer flex items-center gap-2"
+                      >
+                        <FolderOpen className="w-3.5 h-3.5 text-muted-app" />
+                        Import Voyages
+                      </button>
+                      <button
+                        onClick={() => {
+                          onClearAll();
+                          setIsExportOpen(false);
+                        }}
+                        className="w-full px-3 py-2 text-left text-xs font-medium text-rose-600 hover:bg-rose-500/10 border-none cursor-pointer flex items-center gap-2"
+                      >
+                        <Trash2 className="w-3.5 h-3.5 text-rose-600" />
+                        Clear All Logged Voyages
+                      </button>
+                    </div>
                   </div>
                 </>
               )}
             </div>
-
-            <button
-              onClick={onImportPrompt}
-              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-app text-app hover:bg-recessed cursor-pointer flex items-center gap-1.5 shadow-sm"
-            >
-              <FolderOpen className="w-3.5 h-3.5" /> Import
-            </button>
-            <button
-              onClick={onClearAll}
-              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface hover:bg-rose-50 border border-app hover:border-rose-200 text-muted-app hover:text-rose-700 cursor-pointer flex items-center gap-1.5 shadow-sm"
-            >
-              <Trash2 className="w-3.5 h-3.5" /> Clear
-            </button>
           </div>
         </div>
 

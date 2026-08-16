@@ -254,24 +254,24 @@ export default function Dashboard({
       id="page-dashboard"
       className="page active animate-fadeUp w-full max-w-full overflow-x-hidden"
     >
-      <div className="max-w-7xl mx-auto p-3 sm:p-4 md:p-6 lg:p-8 pb-20 md:pb-8 w-full">
+      <div className="max-w-7xl mx-auto p-3 sm:p-4 md:p-6 lg:p-8 pb-4 md:pb-6 w-full">
         {/* Non-Intrusive Mobile-Friendly Cloud Sync Reminder Banner */}
         {!cloudAccount && !isBannerDismissed && (
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-2.5 sm:p-3 mb-3 flex items-center justify-between gap-2 shadow-sm min-w-0">
+          <div className="card-surface border border-app rounded-xl p-2.5 sm:p-3 mb-3 flex items-center justify-between gap-2 shadow-sm min-w-0">
             <div className="flex items-center gap-2 min-w-0 flex-1">
-              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-100 text-amber-700 border border-amber-200 flex items-center justify-center shrink-0">
+              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-recessed text-app border border-app flex items-center justify-center shrink-0">
                 <Smartphone className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-1.5 flex-wrap">
-                  <span className="text-[11px] sm:text-xs font-bold text-amber-950 truncate">
+                  <span className="text-[11px] sm:text-xs font-bold text-app truncate">
                     Guest Mode
                   </span>
-                  <span className="text-[9px] sm:text-[10px] bg-amber-100/80 text-amber-800 px-1.5 py-0.2 rounded border border-amber-200 shrink-0">
+                  <span className="text-[9px] sm:text-[10px] bg-recessed text-muted-app px-1.5 py-0.2 rounded border border-app shrink-0">
                     100% Private
                   </span>
                 </div>
-                <p className="text-[10px] sm:text-[11px] text-amber-700 truncate mt-0.5">
+                <p className="text-[10px] sm:text-[11px] text-muted-app truncate mt-0.5">
                   Saved on device &bull; Connect Google to back up
                 </p>
               </div>
@@ -287,7 +287,7 @@ export default function Dashboard({
               </button>
               <button
                 onClick={() => setIsBannerDismissed(true)}
-                className="text-amber-700 hover:text-amber-900 p-0.5 rounded-lg cursor-pointer border-none bg-transparent"
+                className="text-muted-app hover:text-app p-0.5 rounded-lg cursor-pointer border-none bg-transparent"
                 title="Dismiss banner"
               >
                 <X className="w-3.5 h-3.5" />
@@ -329,17 +329,17 @@ export default function Dashboard({
         {/* Bento Grid Stats - Tablet: 2 cols, Desktop: 3 cols */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6 mb-4 lg:mb-6">
           {/* Card 1: NRI Progress */}
-          <div className="card-surface rounded-xl lg:rounded-2xl p-4 lg:p-6 flex flex-col justify-between shadow-sm min-w-0">
-            <div className="flex justify-between items-center mb-2 lg:mb-4 gap-2 min-w-0">
-              <div className="flex items-center gap-2 lg:gap-3 min-w-0">
-                <div className="w-7 h-7 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
-                  <Shield className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-700" />
+          <div className="card-surface rounded-xl lg:rounded-2xl p-4 lg:p-5 flex flex-col justify-between shadow-sm min-w-0">
+            <div className="flex justify-between items-center mb-3 gap-2 min-w-0">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 flex items-center justify-center shrink-0">
+                  <Shield className="w-4 h-4 text-emerald-600" />
                 </div>
-                <span className="text-xs lg:text-sm font-semibold text-muted-app truncate">
-                  FY {curFYKey.replace("-", "–")}
+                <span className="text-[11px] lg:text-xs font-semibold uppercase tracking-wider text-muted-app leading-tight">
+                  FY Progress
                 </span>
               </div>
-              <span className="text-base lg:text-2xl font-bold font-mono tabular-nums text-app shrink-0">
+              <span className="text-xl lg:text-3xl font-extrabold font-mono tabular-nums text-app shrink-0">
                 {outsideDays}/{nriThreshold}d
               </span>
             </div>
@@ -354,44 +354,44 @@ export default function Dashboard({
           </div>
 
           {/* Card 2: Total Seatime */}
-          <div className="card-surface rounded-xl lg:rounded-2xl p-4 lg:p-6 flex flex-col justify-between shadow-sm min-w-0">
-            <div className="flex justify-between items-center mb-2 lg:mb-4 gap-2 min-w-0">
-              <div className="flex items-center gap-2 lg:gap-3 min-w-0">
-                <div className="w-7 h-7 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0">
-                  <Clock className="w-4 h-4 lg:w-5 lg:h-5 text-amber-700" />
+          <div className="card-surface rounded-xl lg:rounded-2xl p-4 lg:p-5 flex flex-col justify-between shadow-sm min-w-0">
+            <div className="flex justify-between items-center mb-3 gap-2 min-w-0">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4 text-emerald-600" />
                 </div>
-                <span className="text-xs lg:text-sm font-semibold text-muted-app truncate">
-                  Career Seatime
+                <span className="text-[11px] lg:text-xs font-semibold uppercase tracking-wider text-muted-app leading-tight">
+                  Total Days
                 </span>
               </div>
-              <span className="text-base lg:text-2xl font-bold font-mono tabular-nums text-app shrink-0">
+              <span className="text-xl lg:text-3xl font-extrabold font-mono tabular-nums text-app shrink-0">
                 {totalSeaDays.toLocaleString()}d
               </span>
             </div>
-            <div className="text-[11px] lg:text-sm text-muted-app font-mono tabular-nums truncate">
+            <div className="text-[11px] text-muted-app font-mono tabular-nums truncate">
               Across all logged voyages
             </div>
           </div>
 
           {/* Card 3: Deadline Countdown */}
-          <div className="card-surface rounded-xl lg:rounded-2xl p-4 lg:p-6 flex flex-col justify-between shadow-sm min-w-0 md:col-span-2 lg:col-span-1">
-            <div className="flex justify-between items-center mb-2 lg:mb-4 gap-2 min-w-0">
-              <div className="flex items-center gap-2 lg:gap-3 min-w-0">
-                <div className="w-7 h-7 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
-                  <Calendar className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-700" />
+          <div className="card-surface rounded-xl lg:rounded-2xl p-4 lg:p-5 flex flex-col justify-between shadow-sm min-w-0 md:col-span-2 lg:col-span-1">
+            <div className="flex justify-between items-center mb-3 gap-2 min-w-0">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 flex items-center justify-center shrink-0">
+                  <Calendar className="w-4 h-4 text-emerald-600" />
                 </div>
-                <span
-                  className={`text-xs lg:text-sm font-semibold truncate ${isDeadlinePassed ? "text-red-600" : "text-muted-app"}`}
-                >
-                  {deadlineSub}
+                <span className="text-[11px] lg:text-xs font-semibold uppercase tracking-wider text-muted-app leading-tight">
+                  Last Voyage
                 </span>
               </div>
-              <span className="text-base lg:text-2xl font-bold text-app font-mono tabular-nums shrink-0">
+              <span className="text-xl lg:text-3xl font-extrabold text-app font-mono tabular-nums shrink-0">
                 {deadlineText}
               </span>
             </div>
-            <div className="text-[11px] lg:text-sm text-muted-app font-mono truncate">
-              Latest departure date
+            <div
+              className={`text-[11px] font-mono leading-tight ${isDeadlinePassed ? "text-red-600 font-semibold" : "text-muted-app"}`}
+            >
+              {deadlineSub}
             </div>
           </div>
         </div>

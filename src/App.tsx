@@ -803,7 +803,7 @@ export default function App() {
       {/* ═══════════════════════════════════════════
            MAIN SECTION VIEWPORT
            ═══════════════════════════════════════════ */}
-      <main className="flex-grow md:pl-20 lg:pl-64 min-h-screen relative flex flex-col justify-between pb-32 md:pb-0 w-full max-w-full overflow-x-hidden transition-all duration-300">
+      <main className="flex-grow md:pl-20 lg:pl-64 min-h-screen relative flex flex-col justify-start pb-20 md:pb-8 w-full max-w-full overflow-x-hidden transition-all duration-300">
         {/* Mobile Sticky Top Navigation Header */}
         <header
           className="md:hidden sticky top-0 z-40 backdrop-blur-md px-4 py-2.5 flex items-center justify-between shadow-sm transition-colors border-b border-app bg-surface/95 text-app"

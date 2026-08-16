@@ -110,7 +110,7 @@ export default function About({
 
   return (
     <div id="page-about" className="page active animate-fadeUp">
-      <div className="max-w-4xl mx-auto p-4 md:p-6 lg:p-8 pb-24 md:pb-8">
+      <div className="max-w-4xl mx-auto p-4 md:p-6 lg:p-8 pb-4 md:pb-6">
         {/* Header & Section Navigation Tabs */}
         <div className="page-header mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>

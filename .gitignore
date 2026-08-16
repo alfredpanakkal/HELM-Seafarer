@@ -6,3 +6,8 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Ignore Firebase local config files to prevent leaking API keys on GitHub
+firebase-applet-config.json
+firebase-applet-config*.json
+firebase_applet_config*.xml

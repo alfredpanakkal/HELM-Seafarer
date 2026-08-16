@@ -117,7 +117,7 @@ export default function TaxCalculator({
 
   return (
     <div id="page-tax" className="page active animate-fadeUp">
-      <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 pb-24 md:pb-8">
+      <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 pb-4 md:pb-6">
         <div className="page-header mb-6">
           <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-app mb-2">
             Tax Calculator
@@ -136,7 +136,6 @@ export default function TaxCalculator({
           <div className="card-surface rounded-2xl p-5 mb-6 shadow-sm">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-xs font-bold tracking-widest text-app uppercase flex items-center gap-2">
-                <span className="w-1.5 h-3 bg-emerald-600 rounded-sm"></span>{" "}
                 Sailing Tax Analysis
               </h3>
               <span className="text-[10px] text-muted-app font-mono font-bold">

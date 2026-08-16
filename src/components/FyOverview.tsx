@@ -63,7 +63,7 @@ export default function FyOverview({
 
   return (
     <div id="page-fy" className="page active animate-fadeUp">
-      <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 pb-24 md:pb-8">
+      <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8 pb-4 md:pb-6">
         <div className="page-header mb-6">
           <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-app mb-2">
             Financial Year Overview
